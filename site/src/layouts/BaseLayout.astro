@@ -6,13 +6,13 @@ import SiteFooter from "../components/SiteFooter.astro";
 const {
   title = "BoredOS",
   description = "A modern x86_64 hobbyist operating system built from the ground up.",
-  image = "/branding/bOS14.png"
+  image = "/branding/banner.png"
 } = Astro.props;
 
 const pageTitle = title ? `${title} - BoredOS` : "BoredOS";
 const baseUrl = import.meta.env.BASE_URL || "/";
 const iconHref = `${baseUrl}branding/bOS14.png`;
-const ogImage = image.startsWith("http") ? image : `${baseUrl}${image.replace(/^\//, "")}`;
+const ogImage = new URL(image, Astro.site).href;
 ---
 <!doctype html>
 <html lang="en">
@@ -26,6 +26,10 @@ const ogImage = image.startsWith("http") ? image : `${baseUrl}${image.replace(/^
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
   </head>
   <body>
     <div class="page">
