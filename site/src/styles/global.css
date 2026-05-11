@@ -461,21 +461,40 @@ main {
   gap: 16px;
 }
 
-.nav-links {
+.nav-desktop {
   display: flex;
   align-items: center;
-  gap: 24px;
-  font-size: 14px;
-  font-weight: 500;
+  gap: 28px;
 }
 
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex: 1;
-  justify-content: flex-end;
+.nav-desktop a:not(.btn) {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
 }
+
+.nav-desktop a:not(.btn):hover {
+  opacity: 1;
+}
+
+
+.nav-desktop .btn {
+  margin-left: 12px;
+}
+
+.nav-mobile {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .nav-desktop {
+    display: none;
+  }
+}
+
+
 
 .nav-toggle {
   display: none;
@@ -520,12 +539,12 @@ main {
     display: flex;
   }
 
-  .nav-menu {
+  .nav-mobile {
+    display: flex;
     position: fixed;
     inset: 0;
-    background: rgba(246, 244, 241, 0.95);
+    background: rgba(246, 244, 241, 0.98);
     backdrop-filter: blur(20px);
-    display: flex;
     flex-direction: column;
     padding: 120px 24px 64px;
     z-index: 90;
@@ -536,35 +555,35 @@ main {
   }
 
 
-
-  .nav-menu.active {
+  .nav-mobile.active {
     opacity: 1;
     visibility: visible;
   }
 
-  .nav-links {
+  .nav-mobile-links {
     flex-direction: column;
+    display: flex;
     align-items: center;
     text-align: center;
     gap: 32px;
     margin-bottom: 64px;
   }
 
-  .nav-links a {
+  .nav-mobile-links a {
     font-family: "Fraunces", "Georgia", serif;
     font-size: 32px;
     font-weight: 600;
     color: var(--text);
   }
 
-  .nav-actions {
+  .nav-mobile-actions {
     margin-top: auto;
     width: 100%;
     display: flex;
     justify-content: center;
   }
 
-  .nav-actions .btn {
+  .nav-mobile-actions .btn {
     width: 100%;
     max-width: 320px;
     justify-content: center;
@@ -572,6 +591,7 @@ main {
     font-size: 18px;
   }
 }
+
 
 
 

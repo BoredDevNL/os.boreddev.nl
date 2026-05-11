@@ -17,6 +17,13 @@ const navLinks = [
       <span>BoredOS</span>
     </a>
     
+    <nav class="nav-desktop">
+      {navLinks.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+      <a class="btn btn-primary" href={withBase("downloads")}>Get BoredOS</a>
+    </nav>
+
     <button class="nav-toggle" aria-label="Toggle menu" id="navToggle">
       <span></span>
       <span></span>
@@ -25,13 +32,13 @@ const navLinks = [
   </div>
 </header>
 
-<div class="nav-menu" id="navMenu">
-  <nav class="nav-links">
+<div class="nav-mobile" id="navMenu">
+  <nav class="nav-mobile-links">
     {navLinks.map((link) => (
       <a href={link.href}>{link.label}</a>
     ))}
   </nav>
-  <div class="nav-actions">
+  <div class="nav-mobile-actions">
     <a class="btn btn-primary" href={withBase("downloads")}>Get BoredOS</a>
   </div>
 </div>
