@@ -1,7 +1,10 @@
 ---
-const { features = [] } = Astro.props;
+const { features = [], layout } = Astro.props;
+const countClass = `feature-grid--count-${features.length}`;
+const layoutClass = layout ? `feature-grid--${layout}` : "";
+const className = ["feature-grid", countClass, layoutClass].filter(Boolean).join(" ");
 ---
-<div class="feature-grid" data-reveal>
+<div class={className} data-reveal>
   {features.map((feature) => (
     <article class="feature-card">
       <h3>{feature.title}</h3>

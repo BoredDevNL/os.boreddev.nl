@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from "./ThemeToggle.astro";
+
 const baseUrl = import.meta.env.BASE_URL || "/";
 const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
 const navLinks = [
@@ -21,14 +23,20 @@ const navLinks = [
       {navLinks.map((link) => (
         <a href={link.href}>{link.label}</a>
       ))}
+      <ThemeToggle />
       <a class="btn btn-primary" href={withBase("downloads")}>Get BoredOS</a>
     </nav>
 
-    <button class="nav-toggle" aria-label="Toggle menu" id="navToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <div class="nav-mobile-toggle" style="display:flex;">
+        <ThemeToggle />
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
 </header>
 

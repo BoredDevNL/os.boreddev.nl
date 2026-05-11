@@ -58,12 +58,12 @@ const appFeatures = [
     description: "Professional math plotting with 2D/3D visualization and 4-thread parallel rendering."
   },
   {
-    title: "Self-hosting TCC",
-    description: "Compile and run C applications directly on BoredOS using the Tiny C Compiler."
-  },
-  {
     title: "AppDev SDK",
     description: "Comprehensive SDK with ELF metadata support, rich headers, and syscall wrappers."
+  },
+  {
+    title: "Self-hosting TCC",
+    description: "Compile and run C applications directly on BoredOS using the Tiny C Compiler."
   }
 ];
 ---
@@ -74,7 +74,7 @@ const appFeatures = [
         eyebrow="Kernel"
         title="Kernel internals."
         description="SMP scheduling, memory isolation, and a hybrid VFS with FAT32 support." />
-      <FeatureGrid features={kernelFeatures} />
+      <FeatureGrid features={kernelFeatures} layout="balanced-4" />
     </div>
   </section>
 
@@ -84,7 +84,7 @@ const appFeatures = [
         eyebrow="Desktop"
         title="Modern desktop experience."
         description="A stacking window manager, global fuzzy search, and a native UI toolkit built for speed and consistency." />
-      <FeatureGrid features={desktopFeatures} />
+      <FeatureGrid features={desktopFeatures} layout="balanced-4" />
     </div>
   </section>
 
@@ -94,7 +94,7 @@ const appFeatures = [
         eyebrow="Networking"
         title="Networking stack."
         description="lwIP services with DHCP/DNS/ICMP and NIC driver support for common hardware." />
-      <FeatureGrid features={networkFeatures} />
+      <FeatureGrid features={networkFeatures} layout="compact-2" />
     </div>
   </section>
 
@@ -104,7 +104,7 @@ const appFeatures = [
         eyebrow="Applications"
         title="Professional tools & SDK."
         description="Build and run high-performance apps with our native toolchain, ELF metadata support, and rich SDK." />
-      <FeatureGrid features={appFeatures} />
+      <FeatureGrid features={appFeatures} layout="compact-3" />
     </div>
   </section>
 </BaseLayout>
