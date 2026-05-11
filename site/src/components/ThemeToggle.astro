@@ -48,17 +48,24 @@
 
 <script is:inline>
   (function () {
+    var init = document.getElementById('_boredos-theme-init');
+    if (init) return;
+    init = document.createElement('span');
+    init.id = '_boredos-theme-init';
+    init.style.cssText = 'display:none';
+    document.body.appendChild(init);
+
     var stored = localStorage.getItem('theme');
     var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (stored === 'dark' || (!stored && prefersDark)) {
       document.documentElement.classList.add('dark');
     }
 
-    document.querySelectorAll('.theme-toggle').forEach(function (button) {
-      button.addEventListener('click', function () {
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('.theme-toggle')) {
         var isDark = document.documentElement.classList.toggle('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
+      }
     });
   })();
 </script>
