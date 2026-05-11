@@ -44,16 +44,16 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
     secondaryAction={{ label: "Read the docs", href: withBase("docs") }}
   />
 
-  <section class="section screens">
-    <div class="container">
+  <section class="section">
+    <div class="container glass" style="padding: clamp(32px, 5vw, 64px); border-radius: var(--radius-lg);">
       <SectionHeading
         eyebrow="Why BoredOS"
         title="Built for depth, designed for power."
         description="From a multi-core SMP kernel to professional-grade math tools and a native C compiler, BoredOS is a developer's playground."
       />
-      <FeatureGrid features={features} />
+      <FeatureGrid features={features} layout="balanced-4" />
       <div class="section-cta">
-        <a class="btn btn-ghost" href={withBase("features")}>See all features</a>
+        <a class="btn btn-primary" href={withBase("features")}>See all features</a>
       </div>
     </div>
   </section>

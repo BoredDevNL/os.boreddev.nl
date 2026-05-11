@@ -4,18 +4,29 @@ const { title, description, primaryAction, secondaryAction, tertiaryAction } = A
 <section class="section">
   <div class="container">
     <div class="cta-card" data-reveal>
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <div class="cta-actions">
-        {primaryAction ? (
-          <a class="btn btn-ghost" href={primaryAction.href}>{primaryAction.label}</a>
-        ) : null}
-        {secondaryAction ? (
-          <a class="btn btn-ghost" href={secondaryAction.href}>{secondaryAction.label}</a>
-        ) : null}
-        {tertiaryAction ? (
-          <a class="btn btn-ghost" href={tertiaryAction.href}>{tertiaryAction.label}</a>
-        ) : null}
+      <div class="cta-left">
+        <span class="cta-eyebrow">Join the community</span>
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
+      <div class="cta-right">
+        <div class="cta-actions">
+          {primaryAction ? (
+            <a class="btn btn-primary" href={primaryAction.href}>{primaryAction.label}</a>
+          ) : null}
+          <div class="cta-secondary">
+            {secondaryAction ? (
+              <a class="btn btn-ghost" href={secondaryAction.href}>{secondaryAction.label}</a>
+            ) : null}
+            {tertiaryAction ? (
+              <a class="btn btn-ghost" href={tertiaryAction.href}>{tertiaryAction.label}</a>
+            ) : null}
+          </div>
+        </div>
+        <div class="cta-meta">
+          <span class="cta-dot"></span>
+          <small>Open source · GPLv3 · MIT tooling</small>
+        </div>
       </div>
     </div>
   </div>

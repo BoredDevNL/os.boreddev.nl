@@ -9,7 +9,7 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
   <h1>Documentation</h1>
   <p>Browse architecture guides, build instructions, and application development references.</p>
 
-  <div class="feature-grid" data-reveal>
+  <div class="feature-grid docs-category-grid" data-reveal>
     {sidebar.map((section) => {
       const firstSlug = section.items?.[0]?.items?.[0]?.slug || section.items?.[0]?.slug;
       return (
