@@ -20,11 +20,15 @@ const navLinks = [
     </a>
     
     <nav class="nav-desktop">
-      {navLinks.map((link) => (
-        <a href={link.href}>{link.label}</a>
-      ))}
-      <ThemeToggle />
-      <a class="btn btn-primary" href={withBase("downloads")}>Get BoredOS</a>
+      <div class="nav-links">
+        {navLinks.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+      </div>
+      <div class="nav-actions">
+        <ThemeToggle />
+        <a class="btn btn-primary" href={withBase("downloads")}>Get BoredOS</a>
+      </div>
     </nav>
 
     <div style="display:flex; align-items:center; gap:8px;">

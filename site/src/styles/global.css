@@ -794,6 +794,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   padding: 16px 0;
   gap: 16px;
 }
@@ -801,7 +802,24 @@ main {
 .nav-desktop {
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
   gap: 28px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
 }
 
 .nav-desktop a:not(.btn) {
@@ -818,7 +836,7 @@ main {
 
 
 .nav-desktop .btn {
-  margin-left: 12px;
+  margin-left: 0;
 }
 
 .nav-mobile {
