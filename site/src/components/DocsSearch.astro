@@ -1,0 +1,48 @@
+---
+import searchIndex from "../generated/docs/search-index.json";
+const { placeholder = "Search the docs" } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL || "/";
+---
+<div class="docs-search" data-reveal>
+  <input type="search" placeholder={placeholder} aria-label="Search documentation" />
+  <div class="search-results" aria-live="polite"></div>
+</div>
+<script define:vars={{ searchIndex, baseUrl }}>
+  const root = document.currentScript.previousElementSibling;
+  if (root) {
+    const input = root.querySelector("input");
+    const results = root.querySelector(".search-results");
+    const data = Array.isArray(searchIndex) ? searchIndex : [];
+
+    const render = (items) => {
+      results.innerHTML = "";
+      if (!items.length) {
+        results.innerHTML = "<div class='search-result'>No matches yet.</div>";
+        return;
+      }
+
+      results.innerHTML = items
+        .slice(0, 8)
+        .map((item) =>
+          `<a class='search-result' href="${baseUrl}docs/${item.slug}">
+            <strong>${item.title}</strong>
+            <p>${item.snippet}</p>
+          </a>`
+        )
+        .join("");
+    };
+
+    const update = () => {
+      const query = input.value.trim().toLowerCase();
+      if (!query) {
+        results.innerHTML = "";
+        return;
+      }
+
+      const matches = data.filter((item) => item.title.toLowerCase().includes(query) || item.content.includes(query));
+      render(matches);
+    };
+
+    input.addEventListener("input", update);
+  }
+</script>

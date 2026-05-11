@@ -1,0 +1,51 @@
+---
+const baseUrl = import.meta.env.BASE_URL || "/";
+const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
+
+const links = [
+  {
+    title: "Explore",
+    items: [
+      { label: "Documentation", href: withBase("docs") },
+      { label: "Features", href: withBase("features") },
+      { label: "Downloads", href: withBase("downloads") }
+    ]
+  },
+  {
+    title: "Community",
+    items: [
+      { label: "GitHub", href: "https://github.com/boreddevnl/BoredOS" },
+      { label: "Discord", href: "https://discord.gg/J2BxWaFAgY" },
+      { label: "Support", href: "https://buymeacoffee.com/boreddevhq" }
+    ]
+  },
+  {
+    title: "Project",
+    items: [
+      { label: "Wallpapers", href: withBase("wallpapers") },
+      { label: "AppDev SDK", href: withBase("docs/appdev/sdk_reference") }
+    ]
+  }
+];
+---
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>BoredOS</strong>
+      <p><small>A modern x86_64 hobbyist OS built from the ground up.</small></p>
+    </div>
+    {links.map((group) => (
+      <div>
+        <strong>{group.title}</strong>
+        <ul>
+          {group.items.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+  <div class="container">
+    <small>Copyright (C) 2023-2026 boreddevnl. GPL v3.</small>
+  </div>
+</footer>

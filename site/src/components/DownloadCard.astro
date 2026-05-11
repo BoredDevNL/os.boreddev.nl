@@ -1,0 +1,23 @@
+---
+const { release } = Astro.props;
+const safeRelease = release || {};
+const publishedDate = safeRelease.published_at
+  ? new Date(safeRelease.published_at).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    })
+  : "";
+---
+<div class="download-card" data-reveal>
+  <span class="tag">Latest release</span>
+  <h3>{safeRelease.name || "BoredOS"}</h3>
+  <div class="download-meta">
+    {safeRelease.tag_name ? <span>{safeRelease.tag_name}</span> : null}
+    {publishedDate ? <span>Published {publishedDate}</span> : null}
+  </div>
+  <p>{safeRelease.body || "Release notes are fetched from GitHub at build time."}</p>
+  <div>
+    <a class="btn btn-primary" href={safeRelease.html_url || "https://github.com/boreddevnl/BoredOS/releases"}>View release</a>
+  </div>
+</div>

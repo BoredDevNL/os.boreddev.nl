@@ -1,0 +1,26 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import sidebar from "../../generated/docs/sidebar.json";
+
+const baseUrl = import.meta.env.BASE_URL || "/";
+const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
+---
+<DocsLayout title="Documentation" description="Explore BoredOS documentation." sidebar={sidebar} currentSlug="" showSearch={true}>
+  <h1>Documentation</h1>
+  <p>Browse architecture guides, build instructions, and application development references.</p>
+
+  <div class="feature-grid" data-reveal>
+    {sidebar.map((section) => {
+      const firstSlug = section.items?.[0]?.items?.[0]?.slug || section.items?.[0]?.slug;
+      return (
+      <article class="feature-card">
+        <h3>{section.title}</h3>
+        <p>{section.description || "Dive into the core documentation for this area."}</p>
+        {firstSlug ? (
+          <a class="btn btn-ghost" href={withBase(`docs/${firstSlug}`)}>Open section</a>
+        ) : null}
+      </article>
+    );
+    })}
+  </div>
+</DocsLayout>

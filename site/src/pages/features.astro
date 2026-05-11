@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import FeatureGrid from "../components/FeatureGrid.astro";
+
+const kernelFeatures = [
+  {
+    title: "x86_64 long mode",
+    description: "Native 64-bit kernel with paging, fast context switches, and a clean 64-bit address space."
+  },
+  {
+    title: "SMP-aware scheduling",
+    description: "Preemptive scheduler with per-CPU state, LAPIC/IPI coordination, and spinlock-safe subsystems."
+  },
+  {
+    title: "Memory isolation",
+    description: "Bitmap PMM, slab allocator, and per-CPU caches with kernel/user separation."
+  },
+  {
+    title: "Hybrid VFS",
+    description: "Unified VFS with FAT32, and MBR-aware disk detection."
+  }
+];
+
+const desktopFeatures = [
+  {
+    title: "Lumos search",
+    description: "Instant, system-wide search with fuzzy matching and quick-launch capabilities."
+  },
+  {
+    title: "BoredWM",
+    description: "A modern stacking window manager with grid-snapped icons and a functional dock."
+  },
+  {
+    title: "LibWidget toolkit",
+    description: "Native UI components for fast, consistent application development."
+  },
+  {
+    title: "Typography + media",
+    description: "TrueType font caching and hardware-accelerated image decoding for PNG, JPEG, and GIF."
+  }
+];
+
+const networkFeatures = [
+  {
+    title: "lwIP stack",
+    description: "TCP/UDP stack with DHCP, DNS, ICMP, and Berkeley-style sockets."
+  },
+  {
+    title: "NIC drivers",
+    description: "Drivers for Intel E1000, Realtek RTL8139/8111, and VirtIO NICs."
+  }
+];
+
+const appFeatures = [
+  {
+    title: "Grapher",
+    description: "Professional math plotting with 2D/3D visualization and 4-thread parallel rendering."
+  },
+  {
+    title: "Self-hosting TCC",
+    description: "Compile and run C applications directly on BoredOS using the Tiny C Compiler."
+  },
+  {
+    title: "AppDev SDK",
+    description: "Comprehensive SDK with ELF metadata support, rich headers, and syscall wrappers."
+  }
+];
+---
+<BaseLayout title="Features" description="Explore the kernel, desktop, and app tooling that power BoredOS.">
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Kernel"
+        title="Kernel internals."
+        description="SMP scheduling, memory isolation, and a hybrid VFS with FAT32 support." />
+      <FeatureGrid features={kernelFeatures} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Desktop"
+        title="Modern desktop experience."
+        description="A stacking window manager, global fuzzy search, and a native UI toolkit built for speed and consistency." />
+      <FeatureGrid features={desktopFeatures} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Networking"
+        title="Networking stack."
+        description="lwIP services with DHCP/DNS/ICMP and NIC driver support for common hardware." />
+      <FeatureGrid features={networkFeatures} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Applications"
+        title="Professional tools & SDK."
+        description="Build and run high-performance apps with our native toolchain, ELF metadata support, and rich SDK." />
+      <FeatureGrid features={appFeatures} />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  primaryAction,
+  secondaryAction,
+  badges = []
+} = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL || "/";
+const resolveImage = (src) => (src && !src.startsWith("http") ? `${baseUrl}${src.replace(/^\//, "")}` : src);
+const resolvedImage = resolveImage(image);
+---
+<section class="hero">
+  <div class="container">
+    <div class="hero-stage" data-reveal>
+      <img class="hero-stage-bg" src={resolvedImage} alt={imageAlt} loading="lazy" />
+      <div class="hero-stage-overlay">
+        <div class="hero-panel glass">
+          <div class="hero-badges">
+            {badges.map((badge) => (
+              <span class="chip">{badge}</span>
+            ))}
+          </div>
+          <h1>{title}</h1>
+          <p class="hero-lede">{description}</p>
+          <div class="hero-actions">
+            {primaryAction ? (
+              <a class="btn btn-primary" href={primaryAction.href}>{primaryAction.label}</a>
+            ) : null}
+            {secondaryAction ? (
+              <a class="btn btn-ghost" href={secondaryAction.href}>{secondaryAction.label}</a>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

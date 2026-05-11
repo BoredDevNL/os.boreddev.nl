@@ -1,0 +1,35 @@
+{
+  "contributors": [
+    {
+      "login": "BoredDevNL",
+      "avatar_url": "https://avatars.githubusercontent.com/u/169399844?v=4",
+      "html_url": "https://github.com/BoredDevNL",
+      "contributions": 414
+    },
+    {
+      "login": "Lluciocc",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114759545?v=4",
+      "html_url": "https://github.com/Lluciocc",
+      "contributions": 26
+    },
+    {
+      "login": "Mellurboo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/102391892?v=4",
+      "html_url": "https://github.com/Mellurboo",
+      "contributions": 3
+    },
+    {
+      "login": "zeyadhost",
+      "avatar_url": "https://avatars.githubusercontent.com/u/117946311?v=4",
+      "html_url": "https://github.com/zeyadhost",
+      "contributions": 1
+    }
+  ],
+  "latestRelease": {
+    "name": "26.5.1",
+    "tag_name": "26.5.1",
+    "html_url": "https://github.com/BoredDevNL/BoredOS/releases/tag/26.5.1",
+    "published_at": "2026-05-04T21:21:33Z",
+    "body": "# BoredOS Genesis 26.5.1\r\n\r\nThis update focuses on clarifying how BoredOS is intended to be used in an increasingly complex regulatory environment.\r\n\r\nRecent laws such as the California Age-Appropriate Design Code Act (AB 2273) and the UK’s Children’s Code introduce obligations around age verification and child safety for certain types of software and services. While BoredOS is a local, operating system with no data collection, we want to clearly communicate how it fits into that landscape.\r\n\r"
+  }
+}

@@ -1,0 +1,49 @@
+---
+const { items = [], layout = "grid" } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL || "/";
+const resolveImage = (src) => (src && !src.startsWith("http") ? `${baseUrl}${src.replace(/^\//, "")}` : src);
+const gridClass = layout === "overlap" ? "screenshot-grid overlap" : "screenshot-grid";
+---
+{layout === "carousel" ? (
+  <div class="screenshot-carousel" data-reveal>
+    <div class="screenshot-carousel-track" aria-live="polite">
+      {items.map((item) => (
+        <figure class="screenshot-carousel-slide">
+          <img src={resolveImage(item.src)} alt={item.alt} loading="lazy" />
+        </figure>
+      ))}
+    </div>
+  </div>
+) : (
+  <div class={gridClass} data-reveal>
+    {items.map((item) => (
+      <figure class="screenshot-item wide">
+        <img src={resolveImage(item.src)} alt={item.alt} loading="lazy" />
+      </figure>
+    ))}
+  </div>
+)}
+
+{layout === "carousel" ? (
+  <script>
+    const root = document.currentScript.previousElementSibling;
+    if (root) {
+      const track = root.querySelector(".screenshot-carousel-track");
+      const slides = Array.from(root.querySelectorAll(".screenshot-carousel-slide"));
+      let index = 0;
+
+      const scrollToSlide = (nextIndex) => {
+        const slide = slides[nextIndex];
+        if (!slide) {
+          return;
+        }
+        track.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
+      };
+
+      setInterval(() => {
+        index = (index + 1) % slides.length;
+        scrollToSlide(index);
+      }, 4500);
+    }
+  </script>
+) : null}

@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import DownloadCard from "../components/DownloadCard.astro";
+import githubData from "../data/github-data.json";
+
+const baseUrl = import.meta.env.BASE_URL || "/";
+const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
+---
+<BaseLayout title="Downloads" description="Get the latest BoredOS release and build instructions.">
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Downloads"
+        title="Grab the latest release."
+        description="Boot the latest image in QEMU or on metal and put the core stack to work." />
+      <DownloadCard release={githubData.latestRelease} />
+      <div class="mt-8 text-center">
+        <p class="text-sm opacity-70">
+          New to BoredOS? Dive into our <a class="link" href={withBase("docs")}>40+ internal guides</a> covering kernel architecture, networking, and application development.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Build"
+        title="Compile BoredOS from source."
+        description="Prefer building the ISO yourself? The toolchain guide covers dependencies and Makefile targets." />
+      <div class="feature-grid" data-reveal>
+        <article class="feature-card">
+          <h3>Toolchain setup</h3>
+          <p>Install the x86_64-elf toolchain, NASM, and xorriso for ISO builds.</p>
+          <a class="btn btn-ghost" href={withBase("docs/build/toolchain")}>Read toolchain guide</a>
+        </article>
+        <article class="feature-card">
+          <h3>Build and run</h3>
+          <p>Learn how to run BoredOS in QEMU or flash to bare metal hardware.</p>
+          <a class="btn btn-ghost" href={withBase("docs/build/usage")}>Read usage guide</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

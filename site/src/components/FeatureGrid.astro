@@ -1,0 +1,11 @@
+---
+const { features = [] } = Astro.props;
+---
+<div class="feature-grid" data-reveal>
+  {features.map((feature) => (
+    <article class="feature-card">
+      <h3>{feature.title}</h3>
+      <p>{feature.description}</p>
+    </article>
+  ))}
+</div>

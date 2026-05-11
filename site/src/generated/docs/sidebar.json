@@ -1,0 +1,161 @@
+[
+  {
+    "title": "Architecture",
+    "items": [
+      {
+        "title": "System",
+        "items": [
+          {
+            "title": "Core",
+            "slug": "architecture/system/core"
+          },
+          {
+            "title": "Processes & Scheduling",
+            "slug": "architecture/system/processes"
+          }
+        ]
+      },
+      {
+        "title": "Memory",
+        "items": [
+          {
+            "title": "Memory (PMM/VMM)",
+            "slug": "architecture/memory/memory"
+          },
+          {
+            "title": "Memory Manager",
+            "slug": "architecture/memory/memory_manager"
+          }
+        ]
+      },
+      {
+        "title": "Storage & Filesystems",
+        "items": [
+          {
+            "title": "Filesystem",
+            "slug": "architecture/storage/filesystem"
+          },
+          {
+            "title": "AHCI Drivers",
+            "slug": "architecture/storage/ahci_drivers"
+          }
+        ]
+      },
+      {
+        "title": "Network",
+        "items": [
+          {
+            "title": "Network Stack",
+            "slug": "architecture/network/network_stack"
+          }
+        ]
+      },
+      {
+        "title": "Graphics",
+        "items": [
+          {
+            "title": "Window Manager",
+            "slug": "architecture/graphics/window_manager"
+          }
+        ]
+      },
+      {
+        "title": "Hardware",
+        "items": [
+          {
+            "title": "PCI",
+            "slug": "architecture/hardware/pci"
+          }
+        ]
+      },
+      {
+        "title": "Misc",
+        "items": [
+          {
+            "title": "Versioning",
+            "slug": "architecture/versioning"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Building and Deployment",
+    "items": [
+      {
+        "title": "Toolchain",
+        "slug": "build/toolchain"
+      },
+      {
+        "title": "Usage",
+        "slug": "build/usage"
+      }
+    ]
+  },
+  {
+    "title": "Application Development",
+    "items": [
+      {
+        "title": "SDK Reference",
+        "slug": "appdev/sdk_reference"
+      },
+      {
+        "title": "Syscalls",
+        "slug": "appdev/syscalls"
+      },
+      {
+        "title": "libc Reference",
+        "slug": "appdev/libc_reference"
+      },
+      {
+        "title": "UI API",
+        "slug": "appdev/ui_api"
+      },
+      {
+        "title": "Widget API",
+        "slug": "appdev/widget_api"
+      },
+      {
+        "title": "Custom Apps",
+        "slug": "appdev/custom_apps"
+      },
+      {
+        "title": "ELF App Metadata",
+        "slug": "appdev/elf_metadata"
+      },
+      {
+        "title": "Example Apps",
+        "slug": "appdev/examples"
+      },
+      {
+        "title": "Grapher",
+        "slug": "appdev/grapher"
+      },
+      {
+        "title": "Native TCC",
+        "slug": "appdev/tcc"
+      }
+    ]
+  },
+  {
+    "title": "Usage",
+    "items": [
+      {
+        "title": "Desktop",
+        "slug": "usage/desktop"
+      },
+      {
+        "title": "Lumos",
+        "slug": "usage/lumos"
+      },
+      {
+        "title": "Terminal",
+        "slug": "usage/terminal"
+      },
+      {
+        "title": "Launching Apps",
+        "slug": "usage/launching_apps"
+      }
+    ]
+  }
+]

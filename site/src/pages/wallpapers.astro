@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+const baseUrl = import.meta.env.BASE_URL || "/";
+const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
+
+const wallpapers = [
+  { src: withBase("branding/wallpapers/bored%20bird.png"), name: "Bored Bird" },
+  { src: withBase("branding/wallpapers/boredos.png"), name: "BoredOS" }
+];
+---
+<BaseLayout title="Wallpapers" description="Download official BoredOS wallpapers and art.">
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Wallpapers"
+        title="Official BoredOS artwork."
+        description="High-resolution wallpapers drawn from the current desktop themes." />
+      <div class="screenshot-grid" data-reveal>
+        {wallpapers.map((wallpaper) => (
+          <a class="screenshot-item" href={wallpaper.src} download>
+            <img src={wallpaper.src} alt={wallpaper.name} loading="lazy" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

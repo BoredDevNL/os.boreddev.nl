@@ -1,0 +1,24 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import docs from "../../generated/docs/docs.json";
+import sidebar from "../../generated/docs/sidebar.json";
+
+export function getStaticPaths() {
+  return docs.map((doc) => ({
+    params: { slug: doc.slug },
+    props: { doc }
+  }));
+}
+
+const { doc } = Astro.props;
+---
+<DocsLayout
+  title={doc.title}
+  description={doc.description || "BoredOS documentation"}
+  sidebar={sidebar}
+  currentSlug={doc.slug}
+  showSearch={true}
+>
+  <h1>{doc.title}</h1>
+  <div set:html={doc.html}></div>
+</DocsLayout>

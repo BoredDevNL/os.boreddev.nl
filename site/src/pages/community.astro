@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ContributorsGrid from "../components/ContributorsGrid.astro";
+import githubData from "../data/github-data.json";
+---
+<BaseLayout title="Community" description="Meet the contributors and join the BoredOS community.">
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Community"
+        title="Built by developers."
+        description="A growing list of contributors from the community." />
+      <ContributorsGrid contributors={githubData.contributors} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Get involved"
+        title="Join the builders."
+        description="Share ideas, build apps, and push the next release forward." />
+      <div class="feature-grid" data-reveal>
+        <article class="feature-card">
+          <h3>GitHub</h3>
+          <p>Report issues, explore the codebase, and open pull requests.</p>
+          <a class="btn btn-ghost" href="https://github.com/boreddevnl/BoredOS">Visit GitHub</a>
+        </article>
+        <article class="feature-card">
+          <h3>Discord</h3>
+          <p>Chat with the community and get real-time help from maintainers.</p>
+          <a class="btn btn-ghost" href="https://discord.gg/J2BxWaFAgY">Join Discord</a>
+        </article>
+        <article class="feature-card">
+          <h3>Support</h3>
+          <p>Keep development moving by supporting the project financially.</p>
+          <a class="btn btn-ghost" href="https://buymeacoffee.com/boreddevhq">Buy a coffee</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

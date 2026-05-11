@@ -1,0 +1,12 @@
+---
+const { contributors = [] } = Astro.props;
+---
+<div class="contributors-grid" data-reveal>
+  {contributors.map((contributor) => (
+    <a class="contributor-card" href={contributor.html_url}>
+      <img src={contributor.avatar_url} alt={contributor.login} loading="lazy" />
+      <strong>{contributor.login}</strong>
+      <small>{contributor.contributions} contributions</small>
+    </a>
+  ))}
+</div>

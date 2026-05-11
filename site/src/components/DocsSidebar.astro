@@ -1,0 +1,45 @@
+---
+const { sidebar = [], currentSlug = "" } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL || "/";
+const linkFor = (slug) => (slug ? `${baseUrl}docs/${slug}` : baseUrl);
+const isActive = (slug) => slug && currentSlug === slug;
+
+const sections = sidebar.map((section) => {
+  const groups = [];
+  const leaves = [];
+  section.items?.forEach((item) => {
+    if (item.items) {
+      groups.push(item);
+    } else {
+      leaves.push(item);
+    }
+  });
+  return { ...section, groups, leaves };
+});
+---
+{sections.map((section) => (
+  <div>
+    <h4>{section.title}</h4>
+    {section.groups.map((group) => (
+      <div style="margin-bottom: 12px;">
+        <strong style="display:block; margin-bottom:6px; font-size:13px;">{group.title}</strong>
+        <ul>
+          {group.items.map((child) => (
+            <li>
+              <a class={isActive(child.slug) ? "active" : ""} href={linkFor(child.slug)}>{child.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+    {section.leaves.length ? (
+      <ul>
+        {section.leaves.map((item) => (
+          <li>
+            <a class={isActive(item.slug) ? "active" : ""} href={linkFor(item.slug)}>{item.title}</a>
+          </li>
+        ))}
+      </ul>
+    ) : null}
+  </div>
+))}

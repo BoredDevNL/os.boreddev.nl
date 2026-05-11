@@ -1,0 +1,26 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import DocsSidebar from "../components/DocsSidebar.astro";
+import DocsSearch from "../components/DocsSearch.astro";
+
+const {
+  title,
+  description,
+  sidebar = [],
+  currentSlug = "",
+  showSearch = true
+} = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <section class="section tight">
+    <div class="container docs-shell">
+      <aside class="docs-sidebar">
+        <DocsSidebar sidebar={sidebar} currentSlug={currentSlug} />
+      </aside>
+      <article class="docs-content">
+        {showSearch ? <DocsSearch /> : null}
+        <slot />
+      </article>
+    </div>
+  </section>
+</BaseLayout>
