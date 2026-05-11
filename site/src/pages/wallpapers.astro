@@ -8,7 +8,7 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
 const wallpapers = [
   { src: withBase("branding/wallpapers/bored%20bird.png"), name: "Bored Bird" },
   { src: withBase("branding/wallpapers/boredos.png"), name: "BoredOS" },
-  { src: withBase("branding/wallpapers/boredos2.png"), name: "BoredOS 2" }
+  { src: withBase("branding/wallpapers/boredshadow.png"), name: "BoredShadow" }
 ];
 ---
 <BaseLayout title="Wallpapers" description="Download official BoredOS wallpapers and art.">
@@ -18,19 +18,19 @@ const wallpapers = [
         eyebrow="Wallpapers"
         title="Official BoredOS artwork."
         description="High-resolution wallpapers drawn from the current desktop themes." />
-      <div class="screenshot-grid" data-reveal>
-        {wallpapers.map((wallpaper) => (
-          <div class="screenshot-item wallpaper-item">
-            <a class="wallpaper-download" href={wallpaper.src} download>
-              <img src={wallpaper.src} alt={wallpaper.name} loading="lazy" />
-            </a>
-            <a class="wallpaper-credit" href="https://github.com/artemix1508" aria-label="Wallpaper artwork credit: Artemix1508">
-              <img src="https://avatars.githubusercontent.com/u/273844106?v=4" alt="" loading="lazy" />
-              <span>@Artemix1508</span>
-            </a>
-          </div>
-        ))}
-      </div>
+<div class="screenshot-grid" data-reveal>
+          {wallpapers.map((wallpaper) => (
+            <div class="screenshot-item wallpaper-item">
+              <a class="wallpaper-download" href={wallpaper.src} download>
+                <img src={wallpaper.src} alt={wallpaper.name} loading="lazy" />
+              </a>
+              <a class="wallpaper-credit" href="https://github.com/naplon74" aria-label="Wallpaper artwork credit: Naplon74">
+                <img src="https://avatars.githubusercontent.com/u/94738563?v=4" alt="" loading="lazy" />
+                <span>@naplon74</span>
+              </a>
+            </div>
+          ))}
+        </div>
     </div>
   </section>
 </BaseLayout>
