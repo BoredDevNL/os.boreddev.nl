@@ -1,15 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import wallpapersData from "../data/wallpapers.json";
 
 const baseUrl = import.meta.env.BASE_URL || "/";
 const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
 
-const wallpapers = [
-  { src: withBase("branding/wallpapers/bored%20bird.png"), name: "Bored Bird", credit: { href: "https://github.com/artemix1508", label: "@Artemix1508", avatar: "https://avatars.githubusercontent.com/u/273844106?v=4" } },
-  { src: withBase("branding/wallpapers/boredos.png"), name: "BoredOS", credit: { href: "https://github.com/artemix1508", label: "@Artemix1508", avatar: "https://avatars.githubusercontent.com/u/273844106?v=4" } },
-  { src: withBase("branding/wallpapers/boredshadow.png"), name: "BoredShadow", credit: { href: "https://github.com/naplon74", label: "@naplon74", avatar: "https://avatars.githubusercontent.com/u/94738563?v=4" } }
-];
+const wallpapers = wallpapersData.map((wallpaper) => ({
+  ...wallpaper,
+  src: withBase(wallpaper.path)
+}));
 ---
 <BaseLayout title="Wallpapers" description="Download official BoredOS wallpapers and art.">
   <section class="section">
