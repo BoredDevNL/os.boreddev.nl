@@ -16,13 +16,47 @@ const navLinks = [
       <img src={withBase("branding/bOS14.png")} alt="BoredOS logo" width="32" height="32" loading="lazy" />
       <span>BoredOS</span>
     </a>
-    <nav class="nav-links">
-      {navLinks.map((link) => (
-        <a href={link.href}>{link.label}</a>
-      ))}
-    </nav>
-    <div>
-      <a class="btn btn-primary" href={withBase("downloads")}>Get BoredOS</a>
-    </div>
+    
+    <button class="nav-toggle" aria-label="Toggle menu" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
+
+<div class="nav-menu" id="navMenu">
+  <nav class="nav-links">
+    {navLinks.map((link) => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </nav>
+  <div class="nav-actions">
+    <a class="btn btn-primary" href={withBase("downloads")}>Get BoredOS</a>
+  </div>
+</div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.body.style.overflow = !isExpanded ? 'hidden' : '';
+    });
+
+    // Close menu when clicking a link
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>

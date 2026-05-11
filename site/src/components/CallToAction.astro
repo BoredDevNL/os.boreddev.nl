@@ -6,7 +6,7 @@ const { title, description, primaryAction, secondaryAction, tertiaryAction } = A
     <div class="cta-card" data-reveal>
       <h2>{title}</h2>
       <p>{description}</p>
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <div class="cta-actions">
         {primaryAction ? (
           <a class="btn btn-ghost" href={primaryAction.href}>{primaryAction.label}</a>
         ) : null}
