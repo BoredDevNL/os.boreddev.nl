@@ -64,7 +64,8 @@ const main = async () => {
         tag_name: latestRelease.tag_name,
         html_url: latestRelease.html_url,
         published_at: latestRelease.published_at,
-        body: latestRelease.body ? latestRelease.body.split("\n").slice(0, 6).join("\n") : ""
+        body: latestRelease.body || "",
+        iso_url: latestRelease.assets?.find(a => a.name.endsWith(".iso"))?.browser_download_url
       }
     };
 

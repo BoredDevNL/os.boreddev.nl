@@ -1,4 +1,6 @@
 ---
+import { marked } from 'marked';
+
 const { release } = Astro.props;
 const safeRelease = release || {};
 const publishedDate = safeRelease.published_at
@@ -8,16 +10,58 @@ const publishedDate = safeRelease.published_at
       day: "numeric"
     })
   : "";
+
+const bodyContent = safeRelease.body || "Release notes are fetched from GitHub at build time.";
+
+// Parse markdown into tokens to extract the title if it exists as an H1
+const tokens = marked.lexer(bodyContent);
+let title = safeRelease.name || "BoredOS";
+let filteredTokens = tokens;
+
+if (tokens.length > 0 && tokens[0].type === 'heading' && tokens[0].depth === 1) {
+  title = tokens[0].text;
+  filteredTokens = tokens.slice(1);
+}
+
+const bodyHtml = marked.parser(filteredTokens);
 ---
 <div class="download-card" data-reveal>
   <span class="tag">Latest release</span>
-  <h3>{safeRelease.name || "BoredOS"}</h3>
+  
+  <h3>{title}</h3>
+  
   <div class="download-meta">
-    {safeRelease.tag_name ? <span>{safeRelease.tag_name}</span> : null}
+    {safeRelease.tag_name && safeRelease.tag_name !== title ? <span>{safeRelease.tag_name}</span> : null}
     {publishedDate ? <span>Published {publishedDate}</span> : null}
   </div>
-  <p>{safeRelease.body || "Release notes are fetched from GitHub at build time."}</p>
-  <div>
-    <a class="btn btn-primary" href={safeRelease.html_url || "https://github.com/boreddevnl/BoredOS/releases"}>View release</a>
+
+  <div class="download-body" set:html={bodyHtml} />
+  
+  <div class="download-actions mt-6">
+    {safeRelease.iso_url && (
+      <a class="btn btn-primary" href={safeRelease.iso_url}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download ISO
+      </a>
+    )}
+    <a class="btn btn-ghost" href={safeRelease.html_url || "https://github.com/boreddevnl/BoredOS/releases"}>
+      View on GitHub
+    </a>
   </div>
 </div>
+
+<style>
+  .download-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  .download-card h3 {
+    margin: 0;
+    font-size: 24px;
+    font-family: "Fraunces", serif;
+  }
+</style>

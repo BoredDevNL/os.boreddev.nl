@@ -65,6 +65,10 @@
       if (e.target.closest('.theme-toggle')) {
         var isDark = document.documentElement.classList.toggle('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        var meta = document.getElementById('theme-meta');
+        if (meta) {
+          meta.setAttribute('content', isDark ? '#151c26' : '#f6f4f1');
+        }
       }
     });
   })();

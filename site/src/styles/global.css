@@ -85,6 +85,15 @@
   transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
+html {
+  background-color: var(--bg);
+  scroll-behavior: smooth;
+}
+
+html.dark {
+  background-color: #151c26;
+}
+
 body {
   margin: 0;
   font-family: "Manrope", "Segoe UI", sans-serif;
@@ -107,13 +116,13 @@ body {
     linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
 }
 
-body::before {
+html::after {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: -1;
+  z-index: 9999;
 }
 
 img {
@@ -1121,6 +1130,61 @@ main {
   gap: 12px;
   color: var(--muted);
   font-size: 14px;
+}
+
+.download-body {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.download-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.download-body p {
+  margin: 0 0 12px;
+  opacity: 0.85;
+}
+
+.download-body ul, .download-body ol {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  opacity: 0.85;
+}
+
+.download-body li {
+  margin-bottom: 4px;
+}
+
+.download-body code {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+.download-body h1, .download-body h2, .download-body h3 {
+  font-family: "Fraunces", serif;
+  margin: 20px 0 10px;
+  line-height: 1.2;
+}
+
+.download-body h1 { font-size: 1.4em; }
+.download-body h2 { font-size: 1.25em; }
+.download-body h3 { font-size: 1.1em; }
+
+.download-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.download-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
 }
 
 .contributors-grid {
