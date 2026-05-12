@@ -18,19 +18,129 @@ const wallpapers = wallpapersData.map((wallpaper) => ({
         eyebrow="Wallpapers"
         title="Official BoredOS artwork."
         description="High-resolution wallpapers drawn from the current desktop themes." />
-<div class="screenshot-grid" data-reveal>
+      <div class="screenshot-grid" data-reveal>
           {wallpapers.map((wallpaper) => (
             <div class="screenshot-item wallpaper-item">
-              <a class="wallpaper-download" href={wallpaper.src} download>
+              <button
+                class="wallpaper-download wallpaper-preview-trigger"
+                type="button"
+                data-wallpaper-src={wallpaper.src}
+                data-wallpaper-name={wallpaper.name}
+                data-wallpaper-artist={wallpaper.credit.label}
+                data-wallpaper-artist-href={wallpaper.credit.href}
+                data-wallpaper-artist-avatar={wallpaper.credit.avatar}
+                aria-label={`Preview wallpaper ${wallpaper.name}`}>
                 <img src={wallpaper.src} alt={wallpaper.name} loading="lazy" />
-              </a>
+              </button>
               <a class="wallpaper-credit" href={wallpaper.credit.href} aria-label={"Wallpaper artwork credit: " + wallpaper.credit.label}>
                 <img src={wallpaper.credit.avatar} alt="" loading="lazy" />
                 <span>{wallpaper.credit.label}</span>
               </a>
             </div>
           ))}
-        </div>
+      </div>
     </div>
   </section>
+
+  <div class="wallpaper-modal" data-wallpaper-modal hidden>
+    <div class="wallpaper-modal__backdrop" data-modal-close></div>
+    <div class="wallpaper-modal__panel" role="dialog" aria-modal="true" aria-labelledby="wallpaper-modal-title">
+      <h2 id="wallpaper-modal-title" class="wallpaper-modal__title"></h2>
+      <a class="wallpaper-modal__artist" href="" target="_blank" rel="noreferrer noopener">
+        <img class="wallpaper-modal__artist-avatar" src="" alt="" loading="lazy" />
+        <span class="wallpaper-modal__artist-name"></span>
+      </a>
+      <img class="wallpaper-modal__image" src="" alt="" loading="eager" />
+      <div class="wallpaper-modal__actions">
+        <a class="btn btn-primary wallpaper-modal__download" href="" download>Download wallpaper</a>
+        <button class="btn btn-ghost" type="button" data-modal-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.querySelector("[data-wallpaper-modal]");
+
+    if (modal) {
+      const triggers = Array.from(document.querySelectorAll(".wallpaper-preview-trigger"));
+      const image = modal.querySelector(".wallpaper-modal__image");
+      const title = modal.querySelector(".wallpaper-modal__title");
+      const downloadLink = modal.querySelector(".wallpaper-modal__download");
+      const artistLink = modal.querySelector(".wallpaper-modal__artist");
+      const artistAvatar = modal.querySelector(".wallpaper-modal__artist-avatar");
+      const artistName = modal.querySelector(".wallpaper-modal__artist-name");
+      const closeElements = Array.from(modal.querySelectorAll("[data-modal-close]"));
+      const closeDurationMs = 260;
+      let activeTrigger = null;
+      let closeTimer = null;
+
+      const openModal = () => {
+        if (closeTimer) {
+          window.clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+
+        modal.removeAttribute("hidden");
+        modal.classList.remove("is-closing");
+        requestAnimationFrame(() => {
+          modal.classList.add("is-open");
+        });
+        document.body.classList.add("modal-open");
+      };
+
+      const closeModal = () => {
+        if (modal.hasAttribute("hidden")) {
+          return;
+        }
+
+        modal.classList.remove("is-open");
+        modal.classList.add("is-closing");
+        document.body.classList.remove("modal-open");
+
+        closeTimer = window.setTimeout(() => {
+          modal.setAttribute("hidden", "");
+          modal.classList.remove("is-closing");
+          if (activeTrigger instanceof HTMLElement) {
+            activeTrigger.focus();
+          }
+        }, closeDurationMs);
+      };
+
+      triggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          const src = trigger.getAttribute("data-wallpaper-src") || "";
+          const name = trigger.getAttribute("data-wallpaper-name") || "Wallpaper";
+          const artist = trigger.getAttribute("data-wallpaper-artist") || "Wallpaper artist";
+          const artistHref = trigger.getAttribute("data-wallpaper-artist-href") || "#";
+          const artistAvatarSrc = trigger.getAttribute("data-wallpaper-artist-avatar") || "";
+
+          if (!src) {
+            return;
+          }
+
+          activeTrigger = trigger;
+          image.setAttribute("src", src);
+          image.setAttribute("alt", name);
+          title.textContent = name;
+          downloadLink.setAttribute("href", src);
+          artistName.textContent = artist;
+          artistLink.setAttribute("href", artistHref);
+          artistLink.setAttribute("aria-label", `Wallpaper artwork by ${artist}`);
+          artistAvatar.setAttribute("src", artistAvatarSrc);
+          artistAvatar.setAttribute("alt", `Avatar of ${artist}`);
+          openModal();
+        });
+      });
+
+      closeElements.forEach((element) => {
+        element.addEventListener("click", closeModal);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hasAttribute("hidden")) {
+          closeModal();
+        }
+      });
+    }
+  </script>
 </BaseLayout>

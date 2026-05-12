@@ -1,5 +1,32 @@
 [
   {
+    "name": "Adrian",
+    "path": "/branding/wallpapers/adrian.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
+    }
+  },
+  {
+    "name": "Flower Dark",
+    "path": "/branding/wallpapers/flowerdark.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
+    }
+  },
+  {
+    "name": "Flower Light",
+    "path": "/branding/wallpapers/flowerlight.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
+    }
+  },
+  {
     "name": "Bored Bird",
     "path": "/branding/wallpapers/bored bird.png",
     "credit": {
@@ -24,6 +51,33 @@
       "label": "naplon74",
       "href": "https://github.com/naplon74",
       "avatar": "https://github.com/naplon74.png"
+    }
+  },
+  {
+    "name": "The Cat Of Destiny",
+    "path": "/branding/wallpapers/The-Cat-Of-Destiny.png",
+    "credit": {
+      "label": "artemix1508",
+      "href": "https://github.com/artemix1508",
+      "avatar": "https://github.com/artemix1508.png"
+    }
+  },
+  {
+    "name": "Web Of Connectivity",
+    "path": "/branding/wallpapers/Web-Of-Connectivity.png",
+    "credit": {
+      "label": "artemix1508",
+      "href": "https://github.com/artemix1508",
+      "avatar": "https://github.com/artemix1508.png"
+    }
+  },
+  {
+    "name": "Squiggly",
+    "path": "/branding/wallpapers/squiggly.png",
+    "credit": {
+      "label": "pixelyblah",
+      "href": "https://github.com/pixelyblah",
+      "avatar": "https://github.com/pixelyblah.png"
     }
   }
 ]

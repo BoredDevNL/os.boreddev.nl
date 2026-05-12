@@ -116,13 +116,13 @@ body {
     linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
 }
 
-html::after {
+body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 9999;
+  z-index: 0;
 }
 
 img {
@@ -141,6 +141,8 @@ a:hover {
 }
 
 .page {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -566,6 +568,14 @@ main {
   height: 100%;
 }
 
+.wallpaper-preview-trigger {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
 .screenshot-item.wide img {
   position: absolute;
   inset: 0;
@@ -602,6 +612,134 @@ main {
   transform: translateY(-1px);
   border-color: rgba(255, 255, 255, 0.3);
   background: rgba(20, 27, 37, 0.86);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.wallpaper-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: clamp(8px, 2.5vh, 24px) clamp(8px, 2.2vw, 24px);
+  overflow-y: auto;
+}
+
+.wallpaper-modal[hidden] {
+  display: none;
+}
+
+.wallpaper-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 8, 13, 0.72);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.wallpaper-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1200px);
+  max-height: calc(100dvh - clamp(16px, 5vh, 40px));
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 14px;
+  padding: clamp(12px, 2.5vw, 20px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--glass-opaque);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  transition: opacity 260ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@supports not (height: 100dvh) {
+  .wallpaper-modal__panel {
+    max-height: calc(100vh - clamp(16px, 5vh, 40px));
+  }
+}
+
+.wallpaper-modal.is-open .wallpaper-modal__backdrop {
+  opacity: 1;
+}
+
+.wallpaper-modal.is-open .wallpaper-modal__panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.wallpaper-modal.is-closing .wallpaper-modal__backdrop {
+  opacity: 0;
+}
+
+.wallpaper-modal.is-closing .wallpaper-modal__panel {
+  opacity: 0;
+  transform: translateY(14px) scale(0.985);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wallpaper-modal__backdrop,
+  .wallpaper-modal__panel {
+    transition: none;
+  }
+}
+
+.wallpaper-modal__title {
+  margin: 0;
+  font-size: clamp(18px, 2vw, 26px);
+  font-family: "Fraunces", "Georgia", serif;
+}
+
+.wallpaper-modal__artist {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 6px 10px 6px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.wallpaper-modal__artist:hover {
+  color: var(--text);
+  border-color: var(--btn-ghost-hover-border);
+  transform: translateY(-1px);
+}
+
+.wallpaper-modal__artist-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+.wallpaper-modal__image {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(5, 8, 13, 0.3);
+}
+
+.wallpaper-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .screenshot-carousel {
