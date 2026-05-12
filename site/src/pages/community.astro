@@ -12,10 +12,20 @@ const wallpaperArtists = Array.from(
     if (!key || map.has(key)) {
       return map;
     }
+    function getGithubAvatar(href) {
+      if (!href) return "";
+      try {
+        const m = String(href).match(/github\.com\/([^\/\s?#]+)/i);
+        if (m && m[1]) return `https://github.com/${m[1]}.png`;
+      } catch (e) {
+        /* ignore */
+      }
+      return "";
+    }
 
     map.set(key, {
       login: credit.label || "Wallpaper artist",
-      avatar_url: credit.avatar || "",
+      avatar_url: credit.avatar || getGithubAvatar(credit.href) || "",
       html_url: credit.href || "",
       contributionLabel: "Wallpaper artist"
     });
@@ -31,22 +41,31 @@ const contributorKeys = new Set(
   )
 );
 
-const communityContributors = [
-  ...githubData.contributors,
-  ...wallpaperArtists.filter(
-    (artist) =>
-      !contributorKeys.has((artist.html_url || artist.login || "").toLowerCase())
-  )
-];
+const developers = githubData.contributors;
+
+const wallpaperArtistsOnly = wallpaperArtists.filter(
+  (artist) =>
+    !contributorKeys.has((artist.html_url || artist.login || "").toLowerCase())
+);
 ---
 <BaseLayout title="Community" description="Meet the contributors and join the BoredOS community.">
   <section class="section">
     <div class="container">
       <SectionHeading
         eyebrow="Community"
-        title="Built by a community."
-        description="Everyone who has contributed code or artwork to BoredOS." />
-      <ContributorsGrid contributors={communityContributors} />
+        title="Developers"
+        description="People who have contributed code to BoredOS." />
+      <ContributorsGrid contributors={developers} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Artwork"
+        title="Wallpaper artists"
+        description="Artists who provided wallpapers used in the project." />
+      <ContributorsGrid contributors={wallpaperArtistsOnly} />
     </div>
   </section>
 
