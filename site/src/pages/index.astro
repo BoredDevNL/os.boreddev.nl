@@ -13,11 +13,11 @@ const features = [
   },
   {
     title: "Grapher 3D",
-    description: "Interactive 2D/3D math plotting with 4-thread parallel rendering and Phong-style shading."
+    description: "Interactive 2D/3D math plotting with multi-threaded rendering and real-time lighting."
   },
   {
     title: "Native toolchain",
-    description: "Build apps on the metal with the Tiny C Compiler (TCC), Lua, and a rich C SDK."
+    description: "Build apps natively inside BoredOS with the Tiny C Compiler (TCC), Lua, and a rich C SDK."
   },
   {
     title: "Lumos search",
@@ -36,8 +36,8 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
 ---
 <BaseLayout>
   <Hero
-    title="For developers, by developers."
-    description="BoredOS is an x86_64 operating system for developers. It's FOSS, licensed under GPLv3 and has a large amount of documentation."
+    title="An operating system, built from scratch."
+    description="BoredOS is a from-scratch x86_64 operating system — FOSS, GPLv3-licensed, and thoroughly documented."
     image="/branding/wallpapers/boredos.png"
     imageAlt="BoredOS wallpaper"
     primaryAction={{ label: "Download", href: withBase("downloads") }}
@@ -48,8 +48,8 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
     <div class="container glass" style="padding: clamp(32px, 5vw, 64px); border-radius: var(--radius-lg);">
       <SectionHeading
         eyebrow="Why BoredOS"
-        title="Built for depth, designed for power."
-        description="From a multi-core SMP kernel to professional-grade math tools and a native C compiler, BoredOS is a developer's playground."
+        title="More than a toy OS."
+        description="A multi-core SMP kernel, a native C compiler, interactive math tools, and a window manager — all written from the ground up."
       />
       <FeatureGrid features={features} layout="balanced-4" />
       <div class="section-cta">
@@ -62,15 +62,15 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
     <div class="container">
       <SectionHeading
         eyebrow="Screens"
-        title="A usable desktop, built from scratch."
-        description="BoredWM provides a familiar stacking interface with grid-snapping icons and a fuzzy file search (Lumos)." />
+        title="A desktop you can actually use."
+        description="BoredWM provides a familiar stacking interface with grid-snapping icons and a fuzzy-search launcher (Lumos)." />
       <ScreenshotGallery items={screenshots} layout="carousel" />
     </div>
   </section>
 
   <CallToAction
-    title="Build on an OS written by developers."
-    description="Ship ELF apps with the SDK, poke the kernel, and join builders pushing BoredOS forward."
+    title="An OS you can take apart."
+    description="Write native C apps with the SDK, explore kernel internals, and join the community building BoredOS."
     primaryAction={{ label: "Explore docs", href: withBase("docs") }}
     secondaryAction={{ label: "Join Discord", href: "https://discord.gg/J2BxWaFAgY" }}
     tertiaryAction={{ label: "GitHub", href: "https://github.com/boreddevnl/BoredOS" }}

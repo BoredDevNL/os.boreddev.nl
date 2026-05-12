@@ -17,7 +17,7 @@ const baseUrl = import.meta.env.BASE_URL || "/";
     const render = (items) => {
       results.innerHTML = "";
       if (!items.length) {
-        results.innerHTML = "<div class='search-result'>No matches yet.</div>";
+        results.innerHTML = "<div class='search-result'>No results found.</div>";
         return;
       }
 

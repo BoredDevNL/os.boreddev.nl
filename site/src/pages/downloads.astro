@@ -19,7 +19,7 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
       <SectionHeading
         eyebrow="Downloads"
         title="Grab the latest release."
-        description="Experience the newest iteration of BoredOS. Compiled, tested, and ready for your curious mind." />
+        description="Download the latest stable release." />
       <div class="download-stack">
         <DownloadCard release={githubData.latestRelease} label="Latest release" />
         {githubData.nightlyRelease && (
@@ -27,14 +27,14 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
             <SectionHeading
               eyebrow="Experimental"
               title="Nightly builds."
-              description="Get a sneak peek at the latest features. Warning: Nightly builds are automated and may be unstable." />
+              description="Get a sneak peek at the latest features." />
             <DownloadCard release={githubData.nightlyRelease} label="Nightly build" />
           </div>
         )}
       </div>
       <div class="mt-8 text-center">
         <p class="text-sm opacity-70">
-          New to BoredOS? Dive into our <a class="link" href={withBase("docs")}>40+ internal guides</a> covering kernel architecture, networking, and application development.
+          New to BoredOS? Dive into our <a class="link" href={withBase("docs")}>in-depth guides</a> covering kernel architecture, networking, and application development.
         </p>
       </div>
     </div>
@@ -54,7 +54,7 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
         </article>
         <article class="feature-card">
           <h3>Build and run</h3>
-          <p>Learn how to run BoredOS in QEMU or flash to bare metal hardware.</p>
+          <p>Learn how to run BoredOS in QEMU or boot it on real hardware.</p>
           <a class="btn btn-ghost" href={withBase("docs/build/usage")}>Read usage guide</a>
         </article>
       </div>

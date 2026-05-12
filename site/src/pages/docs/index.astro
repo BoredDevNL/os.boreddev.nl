@@ -12,10 +12,17 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
   <div class="feature-grid docs-category-grid" data-reveal>
     {sidebar.map((section) => {
       const firstSlug = section.items?.[0]?.items?.[0]?.slug || section.items?.[0]?.slug;
+      const descriptions = {
+        "Architecture": "Kernel internals, memory management, filesystem design, and hardware drivers.",
+        "Building and Deployment": "Toolchain setup, compilation, and running BoredOS in QEMU or on real hardware.",
+        "Application Development": "SDK reference, syscall API, UI toolkit, and example applications.",
+        "Usage": "Desktop environment, terminal commands, app launching, and Lumos search."
+      };
+      const desc = descriptions[section.title] || `Explore the ${section.title.toLowerCase()} documentation.`;
       return (
       <article class="feature-card">
         <h3>{section.title}</h3>
-        <p>{section.description || "Dive into the core documentation for this area."}</p>
+        <p>{desc}</p>
         {firstSlug ? (
           <a class="btn btn-ghost" href={withBase(`docs/${firstSlug}`)}>Open section</a>
         ) : null}
