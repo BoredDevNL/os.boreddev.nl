@@ -47,9 +47,10 @@ const main = async () => {
   const cache = await loadCache();
 
   try {
-    const [contributors, latestRelease] = await Promise.all([
+    const [contributors, latestRelease, nightlyRelease] = await Promise.all([
       fetchJson(`https://api.github.com/repos/${owner}/${name}/contributors?per_page=100`),
-      fetchJson(`https://api.github.com/repos/${owner}/${name}/releases/latest`)
+      fetchJson(`https://api.github.com/repos/${owner}/${name}/releases/latest`),
+      fetchJson(`https://api.github.com/repos/${owner}/${name}/releases/tags/nightly`).catch(() => null)
     ]);
 
     const payload = {
@@ -66,7 +67,15 @@ const main = async () => {
         published_at: latestRelease.published_at,
         body: latestRelease.body || "",
         iso_url: latestRelease.assets?.find(a => a.name.endsWith(".iso"))?.browser_download_url
-      }
+      },
+      nightlyRelease: nightlyRelease ? {
+        name: nightlyRelease.name || nightlyRelease.tag_name,
+        tag_name: nightlyRelease.tag_name,
+        html_url: nightlyRelease.html_url,
+        published_at: nightlyRelease.published_at,
+        body: nightlyRelease.body || "",
+        iso_url: nightlyRelease.assets?.find(a => a.name.endsWith(".iso"))?.browser_download_url
+      } : null
     };
 
     await saveJson(outputPath, payload);

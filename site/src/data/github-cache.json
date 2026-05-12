@@ -10,7 +10,7 @@
       "login": "Lluciocc",
       "avatar_url": "https://avatars.githubusercontent.com/u/114759545?v=4",
       "html_url": "https://github.com/Lluciocc",
-      "contributions": 29
+      "contributions": 30
     },
     {
       "login": "Mellurboo",
@@ -32,5 +32,13 @@
     "published_at": "2026-05-04T21:21:33Z",
     "body": "# BoredOS Genesis 26.5.1\r\n\r\nThis update focuses on clarifying how BoredOS is intended to be used in an increasingly complex regulatory environment.\r\n\r\nRecent laws such as the California Age-Appropriate Design Code Act (AB 2273) and the UK’s Children’s Code introduce obligations around age verification and child safety for certain types of software and services. While BoredOS is a local, operating system with no data collection, we want to clearly communicate how it fits into that landscape.\r\n\r\n---\r\n\r\n## What’s New\r\n\r\n### Usage Policy (POLICY.md)\r\n\r\nWe’ve introduced a **Usage Policy** to clarify:\r\n\r\n- BoredOS does **not implement age verification or age-gating**\r\n- BoredOS does **not collect or process user data**\r\n- Users and distributors are **responsible for ensuring compliance with their local laws**\r\n\r\nThis is not a change to the GPLv3 license, but an additional document explaining intended use and legal context.\r\n\r\n---\r\n\r\n## TL;DR\r\n\r\n- **No tracking, no accounts, no telemetry**\r\n- **No age-gating — by design and not planned**\r\n- **You are responsible for complying with laws in your jurisdiction**\r\n- **If your local laws require age verification for your use case, BoredOS may not be suitable**\r\n\r\n---\r\n\r\n## First Boot Notice\r\n\r\nOn first boot, you’ll see a `y/n` prompt referencing the Usage Policy.\r\n\r\nContinuing indicates that you:\r\n- Have been informed about the policy\r\n- Understand that BoredOS does not implement regulatory features like age verification\r\n- Accept responsibility for how you use and distribute the software\r\n\r\n---\r\n\r\n## Versioning \r\n\r\n- **BoredOS**: 26.5.1-stable  \r\n- **Boredkernel**: 4.2.1-stable  \r\n\r\n---\r\n\r\n## Installation & Deployment\r\n\r\n```bash\r\ngit pull\r\nmake clean\r\nmake",
     "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/26.5.1/boredos.iso"
+  },
+  "nightlyRelease": {
+    "name": "Nightly Build (04794bb)",
+    "tag_name": "nightly",
+    "html_url": "https://github.com/BoredDevNL/BoredOS/releases/tag/nightly",
+    "published_at": "2026-04-19T22:06:08Z",
+    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `04794bb9860764c20d154513caebd8df199e734f`\n- Short hash: `04794bb`\n",
+    "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/nightly/boredos.iso"
   }
 }

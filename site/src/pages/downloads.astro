@@ -7,6 +7,12 @@ import githubData from "../data/github-data.json";
 const baseUrl = import.meta.env.BASE_URL || "/";
 const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
 ---
+<style>
+  .download-stack {
+    display: grid;
+    gap: 48px;
+  }
+</style>
 <BaseLayout title="Downloads" description="Get the latest BoredOS release and build instructions.">
   <section class="section">
     <div class="container">
@@ -14,7 +20,18 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
         eyebrow="Downloads"
         title="Grab the latest release."
         description="Experience the newest iteration of BoredOS. Compiled, tested, and ready for your curious mind." />
-      <DownloadCard release={githubData.latestRelease} />
+      <div class="download-stack">
+        <DownloadCard release={githubData.latestRelease} label="Latest release" />
+        {githubData.nightlyRelease && (
+          <div class="mt-12">
+            <SectionHeading
+              eyebrow="Experimental"
+              title="Nightly builds."
+              description="Get a sneak peek at the latest features. Warning: Nightly builds are automated and may be unstable." />
+            <DownloadCard release={githubData.nightlyRelease} label="Nightly build" />
+          </div>
+        )}
+      </div>
       <div class="mt-8 text-center">
         <p class="text-sm opacity-70">
           New to BoredOS? Dive into our <a class="link" href={withBase("docs")}>40+ internal guides</a> covering kernel architecture, networking, and application development.

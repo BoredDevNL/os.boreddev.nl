@@ -1,7 +1,7 @@
 ---
 import { marked } from 'marked';
 
-const { release } = Astro.props;
+const { release, label = "Latest release" } = Astro.props;
 const safeRelease = release || {};
 const publishedDate = safeRelease.published_at
   ? new Date(safeRelease.published_at).toLocaleDateString("en-US", {
@@ -26,7 +26,7 @@ if (tokens.length > 0 && tokens[0].type === 'heading' && tokens[0].depth === 1) 
 const bodyHtml = marked.parser(filteredTokens);
 ---
 <div class="download-card" data-reveal>
-  <span class="tag">Latest release</span>
+  <span class="tag">{label}</span>
   
   <h3>{title}</h3>
   
