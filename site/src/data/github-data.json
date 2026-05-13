@@ -4,41 +4,41 @@
       "login": "BoredDevNL",
       "avatar_url": "https://avatars.githubusercontent.com/u/169399844?v=4",
       "html_url": "https://github.com/BoredDevNL",
-      "contributions": 437
+      "contributions": 444
     },
     {
       "login": "Lluciocc",
       "avatar_url": "https://avatars.githubusercontent.com/u/114759545?v=4",
       "html_url": "https://github.com/Lluciocc",
-      "contributions": 34
+      "contributions": 40
     },
     {
       "login": "Mellurboo",
       "avatar_url": "https://avatars.githubusercontent.com/u/102391892?v=4",
       "html_url": "https://github.com/Mellurboo",
-      "contributions": 4
+      "contributions": 5
     },
     {
       "login": "zeyadhost",
       "avatar_url": "https://avatars.githubusercontent.com/u/117946311?v=4",
       "html_url": "https://github.com/zeyadhost",
-      "contributions": 2
+      "contributions": 4
     }
   ],
   "latestRelease": {
-    "name": "26.5.1",
-    "tag_name": "26.5.1",
-    "html_url": "https://github.com/BoredDevNL/BoredOS/releases/tag/26.5.1",
-    "published_at": "2026-05-04T21:21:33Z",
-    "body": "# BoredOS Genesis 26.5.1\r\n\r\nThis update focuses on clarifying how BoredOS is intended to be used in an increasingly complex regulatory environment.\r\n\r\nRecent laws such as the California Age-Appropriate Design Code Act (AB 2273) and the UK’s Children’s Code introduce obligations around age verification and child safety for certain types of software and services. While BoredOS is a local, operating system with no data collection, we want to clearly communicate how it fits into that landscape.\r\n\r\n---\r\n\r\n## What’s New\r\n\r\n### Usage Policy (POLICY.md)\r\n\r\nWe’ve introduced a **Usage Policy** to clarify:\r\n\r\n- BoredOS does **not implement age verification or age-gating**\r\n- BoredOS does **not collect or process user data**\r\n- Users and distributors are **responsible for ensuring compliance with their local laws**\r\n\r\nThis is not a change to the GPLv3 license, but an additional document explaining intended use and legal context.\r\n\r\n---\r\n\r\n## TL;DR\r\n\r\n- **No tracking, no accounts, no telemetry**\r\n- **No age-gating — by design and not planned**\r\n- **You are responsible for complying with laws in your jurisdiction**\r\n- **If your local laws require age verification for your use case, BoredOS may not be suitable**\r\n\r\n---\r\n\r\n## First Boot Notice\r\n\r\nOn first boot, you’ll see a `y/n` prompt referencing the Usage Policy.\r\n\r\nContinuing indicates that you:\r\n- Have been informed about the policy\r\n- Understand that BoredOS does not implement regulatory features like age verification\r\n- Accept responsibility for how you use and distribute the software\r\n\r\n---\r\n\r\n## Versioning \r\n\r\n- **BoredOS**: 26.5.1-stable  \r\n- **Boredkernel**: 4.2.1-stable  \r\n\r\n---\r\n\r\n## Installation & Deployment\r\n\r\n```bash\r\ngit pull\r\nmake clean\r\nmake",
-    "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/26.5.1/boredos.iso"
+    "name": "26.5.0",
+    "tag_name": "26.5.0",
+    "html_url": "https://github.com/BoredDevNL/BoredOS/releases/tag/26.5.0",
+    "published_at": "2026-05-01T19:19:26Z",
+    "body": "# BoredOS Genesis 26.5\r\n\r\nA big release. Genesis 26.5 touches nearly every layer of the system: kernel, input handling, UI, filesystem, and more.\r\n\r\n---\r\n\r\n## Kernel & Core System\r\n\r\n**Boredkernel 4.2.0-stable**\r\n\r\n- **Syscall Dispatch Refactor**: Swapped out the old if/else chains for dispatch tables.\r\n- **Signals, Exec & Wait**: Process control is now fully fleshed out — signal handling, exec, pipes, and FD support all in.\r\n- **ELF Metadata Support**: Two new syscalls (76 & 77) for parsing and validating ELF app metadata at runtime.\r\n- **Memory Manager Rewrite**: New two-tier slab allocator with dynamic block lists. \r\n- **IDT Improvements**: Interrupt diagnostics now dump RIP, error codes, and CR2.\r\n\r\n## Input & Internationalization\r\n\r\nThis was a long time coming. The input subsystem got a full rewrite:\r\n\r\n- **UTF-8 Input**: Proper UTF-8 handling, with keyboard layout support.\r\n- **Multi-Layout Support**: Keyboard layouts can be switched dynamically at runtime.\r\n- **App Updates**: Boredword, browser, grapher, libwidget, terminal, and txtedit all updated for UTF-8 compatibility.\r\n\r\n\r\n## UI & Desktop Environment\r\n\r\n- **Dynamic Dock**: The dock now supports drag-to-reorder, and lets you pin files.\r\n- **TrueType Fonts**: Terminal and txtedit both support proportional fonts now.\r\n- **Colloid Icons**: Swapped in Colloid icons in place of hardcoded shape icons.\r\n- **Boot Banner**: New BoredOS banner in the kernel terminal on boot.\r\n\r\n## Shell & Userland\r\n\r\n**Bsh** got some quality-of-life work:\r\n\r\n- Colored prompts, configurable via `bshrc`\r\n- Right-aligned prompt support\r\n- Command history \r\n- General input handling cleanup\r\n\r\n## Graphics & Extras\r\n\r\n- **Lua 5.5.0**: Added the Lua runtime.\r\n- **Wallpapers**: New wallpaper set. \r\n\r\n## Build System\r\n\r\n- Platform-specific run parameters for Windows, macOS, and Linux.\r\n- General Makefile cleanup.\r\n\r\n## Bug Fixes\r\n\r\n- Fixed flickering caused by serial output\r\n\r\n\r\n## Installation\r\n\r\n```bash\r\ngit pull\r\nmake clean\r\nmake\r\n```\r\n\r\nOr grab the `.iso` from this release.\r\n\r\n---\r\n\r\n## Verification\r\nIf downloading from a third-party source, please verify your image.\r\n\r\n**SHA-256**: `1bf9432b10e81b4142f4cb688c4712767985f620230556b1370a7fcfbf189178`\r\n\r\n\r\n---\r\n\r\n**OS**: 26.5-stable · **Codename**: Genesis · **Kernel**: Boredkernel 4.2.0-stable \r\n<img width=\"3420\" height=\"2150\" alt=\"Screenshot 2026-05-01 at 21 13 47\" src=\"https://github.com/user-attachments/assets/aaaf38aa-6550-4e61-b138-eb6456d9c243\" />\r\n",
+    "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/26.5.0/boredos.iso"
   },
   "nightlyRelease": {
-    "name": "Nightly Build (642dc7f)",
+    "name": "Nightly Build (007ef44)",
     "tag_name": "nightly",
     "html_url": "https://github.com/BoredDevNL/BoredOS/releases/tag/nightly",
     "published_at": "2026-04-19T22:06:08Z",
-    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `642dc7f8c94b51499f21f0dbe4b5f96c98f1b8e5`\n- Short hash: `642dc7f`\n",
+    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `007ef4469faab05a381e1b958846691b6b49fb9a`\n- Short hash: `007ef44`\n",
     "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/nightly/boredos.iso"
   }
 }
