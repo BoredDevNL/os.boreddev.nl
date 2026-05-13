@@ -4,7 +4,7 @@
       "login": "BoredDevNL",
       "avatar_url": "https://avatars.githubusercontent.com/u/169399844?v=4",
       "html_url": "https://github.com/BoredDevNL",
-      "contributions": 444
+      "contributions": 445
     },
     {
       "login": "Lluciocc",
@@ -34,11 +34,11 @@
     "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/26.5.0/boredos.iso"
   },
   "nightlyRelease": {
-    "name": "Nightly Build (007ef44)",
+    "name": "Nightly Build (4f17e07)",
     "tag_name": "nightly",
     "html_url": "https://github.com/BoredDevNL/BoredOS/releases/tag/nightly",
     "published_at": "2026-04-19T22:06:08Z",
-    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `007ef4469faab05a381e1b958846691b6b49fb9a`\n- Short hash: `007ef44`\n",
+    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `4f17e0787ce45316a7ecc313cc5af35e35af852f`\n- Short hash: `4f17e07`\n",
     "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/nightly/boredos.iso"
   }
 }

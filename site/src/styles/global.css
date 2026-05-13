@@ -1245,6 +1245,7 @@ body.modal-open {
   background: var(--glass-opaque);
   display: grid;
   gap: 12px;
+  min-width: 0;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
@@ -1274,6 +1275,9 @@ body.modal-open {
   font-size: 15px;
   line-height: 1.6;
   color: var(--text);
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .download-body > *:last-child {
@@ -1301,6 +1305,16 @@ body.modal-open {
   border-radius: 4px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.9em;
+  word-break: break-all;
+}
+
+.download-body pre {
+  background: var(--code-bg);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  max-width: 100%;
+  margin-bottom: 12px;
 }
 
 .download-body h1, .download-body h2, .download-body h3 {
@@ -1586,5 +1600,9 @@ body.modal-open {
 
   .docs-content {
     padding: 24px 20px;
+  }
+
+  .download-card {
+    padding: 16px;
   }
 }
