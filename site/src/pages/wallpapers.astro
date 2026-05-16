@@ -6,10 +6,44 @@ import wallpapersData from "../data/wallpapers.json";
 const baseUrl = import.meta.env.BASE_URL || "/";
 const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
 
-const wallpapers = wallpapersData.map((wallpaper) => ({
-  ...wallpaper,
-  src: withBase(wallpaper.path)
-}));
+const GROUPABLE_PREFIXES = ['Flower', 'Soft'];
+
+const groupedWallpapers = wallpapersData.reduce((acc, wp) => {
+  const parts = wp.name.split(' ');
+  const groupName = parts[0];
+  const variantName = parts.slice(1).join(' ') || 'Original';
+  
+  if (GROUPABLE_PREFIXES.includes(groupName)) {
+    if (!acc[groupName]) {
+      acc[groupName] = {
+        id: groupName.toLowerCase(),
+        name: groupName,
+        variants: [],
+        credit: wp.credit
+      };
+    }
+    acc[groupName].variants.push({
+      ...wp,
+      variantName,
+      src: withBase(wp.path)
+    });
+  } else {
+    // Treat as individual
+    acc[wp.name] = {
+      id: wp.name.toLowerCase().replace(/\s+/g, '-'),
+      name: wp.name,
+      variants: [{
+        ...wp,
+        variantName: '',
+        src: withBase(wp.path)
+      }],
+      credit: wp.credit
+    };
+  }
+  return acc;
+}, {});
+
+const wallpapers = Object.values(groupedWallpapers);
 ---
 <BaseLayout title="Wallpapers" description="Download official BoredOS wallpapers and art.">
   <section class="section">
@@ -19,25 +53,46 @@ const wallpapers = wallpapersData.map((wallpaper) => ({
         title="Official BoredOS artwork."
         description="High-resolution wallpapers made by the community." />
       <div class="screenshot-grid" data-reveal>
-          {wallpapers.map((wallpaper) => (
-            <div class="screenshot-item wallpaper-item">
-              <button
-                class="wallpaper-download wallpaper-preview-trigger"
-                type="button"
-                data-wallpaper-src={wallpaper.src}
-                data-wallpaper-name={wallpaper.name}
-                data-wallpaper-artist={wallpaper.credit.label}
-                data-wallpaper-artist-href={wallpaper.credit.href}
-                data-wallpaper-artist-avatar={wallpaper.credit.avatar}
-                aria-label={`Preview wallpaper ${wallpaper.name}`}>
-                <img src={wallpaper.src} alt={wallpaper.name} loading="lazy" />
-              </button>
-              <a class="wallpaper-credit" href={wallpaper.credit.href} aria-label={"Wallpaper artwork credit: " + wallpaper.credit.label}>
-                <img src={wallpaper.credit.avatar} alt="" loading="lazy" />
-                <span>{wallpaper.credit.label}</span>
-              </a>
-            </div>
-          ))}
+          {wallpapers.map((group) => {
+            const firstVariant = group.variants[0];
+            return (
+              <div class="screenshot-item wallpaper-item" data-group-id={group.id}>
+                <div class="wallpaper-preview-container">
+                  <button
+                    class="wallpaper-download wallpaper-preview-trigger"
+                    type="button"
+                    data-wallpaper-src={firstVariant.src}
+                    data-wallpaper-name={group.variants.length > 1 ? `${group.name} ${firstVariant.variantName}` : group.name}
+                    data-wallpaper-artist={group.credit.label}
+                    data-wallpaper-artist-href={group.credit.href}
+                    data-wallpaper-artist-avatar={group.credit.avatar}
+                    aria-label={`Preview wallpaper ${group.name}`}>
+                    <img src={firstVariant.src} alt={group.name} loading="lazy" class="main-preview" />
+                  </button>
+                  
+                  {group.variants.length > 1 && (
+                    <div class="wallpaper-variants">
+                      {group.variants.map((variant, index) => (
+                        <button
+                          class={`variant-swatch ${index === 0 ? 'is-active' : ''}`}
+                          type="button"
+                          data-variant-src={variant.src}
+                          data-variant-name={`${group.name} ${variant.variantName}`}
+                          aria-label={`Switch to ${variant.variantName} variant`}>
+                          <img src={variant.src} alt="" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <a class="wallpaper-credit" href={group.credit.href} aria-label={"Wallpaper artwork credit: " + group.credit.label}>
+                  <img src={group.credit.avatar} alt="" loading="lazy" />
+                  <span>{group.credit.label}</span>
+                </a>
+              </div>
+            );
+          })}
       </div>
     </div>
   </section>
@@ -58,6 +113,110 @@ const wallpapers = wallpapersData.map((wallpaper) => ({
     </div>
   </div>
 
+  <style>
+    .wallpaper-preview-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--surface-2);
+    }
+
+    .wallpaper-preview-trigger {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: none;
+      background: none;
+      cursor: pointer;
+      display: block;
+    }
+
+    .wallpaper-preview-trigger img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+    }
+
+    .wallpaper-preview-trigger:hover img {
+      transform: scale(1.05);
+    }
+
+    .wallpaper-variants {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      padding: 6px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      border-radius: 100px;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .wallpaper-preview-container:hover .wallpaper-variants {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    .variant-swatch {
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      border: 2px solid transparent;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--surface-3);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .variant-swatch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .variant-swatch.is-active {
+      border-color: #fff;
+      transform: scale(1.15);
+    }
+
+    .variant-swatch:hover:not(.is-active) {
+      transform: scale(1.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .wallpaper-credit {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      margin-top: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .wallpaper-credit:hover {
+      color: var(--primary);
+    }
+
+    .wallpaper-credit img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+  </style>
+
   <script>
     const modal = document.querySelector("[data-wallpaper-modal]");
 
@@ -73,6 +232,36 @@ const wallpapers = wallpapersData.map((wallpaper) => ({
       const closeDurationMs = 260;
       let activeTrigger = null;
       let closeTimer = null;
+
+      // Variant Switching Logic
+      const wallpaperItems = document.querySelectorAll('.wallpaper-item');
+      wallpaperItems.forEach(item => {
+        const swatches = item.querySelectorAll('.variant-swatch');
+        const mainPreview = item.querySelector('.main-preview');
+        const trigger = item.querySelector('.wallpaper-preview-trigger');
+
+        swatches.forEach(swatch => {
+          swatch.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            const newSrc = swatch.getAttribute('data-variant-src');
+            const newName = swatch.getAttribute('data-variant-name');
+
+            // Update Active Class
+            swatches.forEach(s => s.classList.remove('is-active'));
+            swatch.classList.add('is-active');
+
+            // Update Preview Image
+            if (mainPreview) mainPreview.setAttribute('src', newSrc);
+
+            // Update Trigger Attributes for Modal
+            if (trigger) {
+              trigger.setAttribute('data-wallpaper-src', newSrc);
+              trigger.setAttribute('data-wallpaper-name', newName);
+            }
+          });
+        });
+      });
 
       const openModal = () => {
         if (closeTimer) {

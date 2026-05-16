@@ -1,5 +1,14 @@
 [
   {
+    "name": "Bored Bird",
+    "path": "/branding/wallpapers/bored bird.png",
+    "credit": {
+      "label": "artemix1508",
+      "href": "https://github.com/artemix1508",
+      "avatar": "https://github.com/artemix1508.png"
+    }
+  },  
+  {
     "name": "Adrian",
     "path": "/branding/wallpapers/adrian.jpg",
     "credit": {
@@ -24,15 +33,6 @@
       "label": "qwroffc",
       "href": "https://github.com/qwroffc",
       "avatar": "https://github.com/qwroffc.png"
-    }
-  },
-  {
-    "name": "Bored Bird",
-    "path": "/branding/wallpapers/bored bird.png",
-    "credit": {
-      "label": "artemix1508",
-      "href": "https://github.com/artemix1508",
-      "avatar": "https://github.com/artemix1508.png"
     }
   },
   {
@@ -96,6 +96,87 @@
       "label": "artemix1508",
       "href": "https://github.com/artemix1508",
       "avatar": "https://github.com/artemix1508.png"
+    }
+  },
+  {
+    "name": "Curvature",
+    "path": "/branding/wallpapers/Curvature.png",
+    "credit": {
+      "label": "naplon74",
+      "href": "https://github.com/naplon74",
+      "avatar": "https://github.com/naplon74.png"
+    }
+  },
+  {
+    "name": "BoredGlobe",
+    "path": "/branding/wallpapers/BoredGlobe.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
+    }
+  },
+  {
+    "name": "Soft Blue",
+    "path": "/branding/wallpapers/SoftBlue.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
+    }
+  },
+  {
+    "name": "Soft Cyan",
+    "path": "/branding/wallpapers/SoftCyan.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
+    }
+  },
+  {
+    "name": "Soft Green",
+    "path": "/branding/wallpapers/SoftGreen.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
+    }
+  },
+  {
+    "name": "Soft Dark Green",
+    "path": "/branding/wallpapers/SoftDGreen.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
+    }
+  },
+  {
+    "name": "Soft Orange",
+    "path": "/branding/wallpapers/SoftOrange.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
+    }
+  },
+  {
+    "name": "Soft Pink",
+    "path": "/branding/wallpapers/SoftPink.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
+    }
+  },
+  {
+    "name": "Soft Purple",
+    "path": "/branding/wallpapers/SoftPurple.jpg",
+    "credit": {
+      "label": "qwroffc",
+      "href": "https://github.com/qwroffc",
+      "avatar": "https://github.com/qwroffc.png"
     }
   }
 ]

@@ -4,41 +4,53 @@
       "login": "BoredDevNL",
       "avatar_url": "https://avatars.githubusercontent.com/u/169399844?v=4",
       "html_url": "https://github.com/BoredDevNL",
-      "contributions": 445
+      "contributions": 462
     },
     {
       "login": "Lluciocc",
       "avatar_url": "https://avatars.githubusercontent.com/u/114759545?v=4",
       "html_url": "https://github.com/Lluciocc",
-      "contributions": 40
+      "contributions": 68
+    },
+    {
+      "login": "janevers-sys",
+      "avatar_url": "https://avatars.githubusercontent.com/u/231253551?v=4",
+      "html_url": "https://github.com/janevers-sys",
+      "contributions": 18
     },
     {
       "login": "Mellurboo",
       "avatar_url": "https://avatars.githubusercontent.com/u/102391892?v=4",
       "html_url": "https://github.com/Mellurboo",
-      "contributions": 5
+      "contributions": 14
     },
     {
       "login": "zeyadhost",
       "avatar_url": "https://avatars.githubusercontent.com/u/117946311?v=4",
       "html_url": "https://github.com/zeyadhost",
       "contributions": 4
+    },
+    {
+      "login": "whitehai11",
+      "avatar_url": "https://avatars.githubusercontent.com/u/157622851?v=4",
+      "html_url": "https://github.com/whitehai11",
+      "contributions": 2
     }
   ],
   "latestRelease": {
-    "name": "26.5.0",
-    "tag_name": "26.5.0",
-    "html_url": "https://github.com/BoredDevNL/BoredOS/releases/tag/26.5.0",
-    "published_at": "2026-05-01T19:19:26Z",
-    "body": "# BoredOS Genesis 26.5\r\n\r\nA big release. Genesis 26.5 touches nearly every layer of the system: kernel, input handling, UI, filesystem, and more.\r\n\r\n---\r\n\r\n## Kernel & Core System\r\n\r\n**Boredkernel 4.2.0-stable**\r\n\r\n- **Syscall Dispatch Refactor**: Swapped out the old if/else chains for dispatch tables.\r\n- **Signals, Exec & Wait**: Process control is now fully fleshed out — signal handling, exec, pipes, and FD support all in.\r\n- **ELF Metadata Support**: Two new syscalls (76 & 77) for parsing and validating ELF app metadata at runtime.\r\n- **Memory Manager Rewrite**: New two-tier slab allocator with dynamic block lists. \r\n- **IDT Improvements**: Interrupt diagnostics now dump RIP, error codes, and CR2.\r\n\r\n## Input & Internationalization\r\n\r\nThis was a long time coming. The input subsystem got a full rewrite:\r\n\r\n- **UTF-8 Input**: Proper UTF-8 handling, with keyboard layout support.\r\n- **Multi-Layout Support**: Keyboard layouts can be switched dynamically at runtime.\r\n- **App Updates**: Boredword, browser, grapher, libwidget, terminal, and txtedit all updated for UTF-8 compatibility.\r\n\r\n\r\n## UI & Desktop Environment\r\n\r\n- **Dynamic Dock**: The dock now supports drag-to-reorder, and lets you pin files.\r\n- **TrueType Fonts**: Terminal and txtedit both support proportional fonts now.\r\n- **Colloid Icons**: Swapped in Colloid icons in place of hardcoded shape icons.\r\n- **Boot Banner**: New BoredOS banner in the kernel terminal on boot.\r\n\r\n## Shell & Userland\r\n\r\n**Bsh** got some quality-of-life work:\r\n\r\n- Colored prompts, configurable via `bshrc`\r\n- Right-aligned prompt support\r\n- Command history \r\n- General input handling cleanup\r\n\r\n## Graphics & Extras\r\n\r\n- **Lua 5.5.0**: Added the Lua runtime.\r\n- **Wallpapers**: New wallpaper set. \r\n\r\n## Build System\r\n\r\n- Platform-specific run parameters for Windows, macOS, and Linux.\r\n- General Makefile cleanup.\r\n\r\n## Bug Fixes\r\n\r\n- Fixed flickering caused by serial output\r\n\r\n\r\n## Installation\r\n\r\n```bash\r\ngit pull\r\nmake clean\r\nmake\r\n```\r\n\r\nOr grab the `.iso` from this release.\r\n\r\n---\r\n\r\n## Verification\r\nIf downloading from a third-party source, please verify your image.\r\n\r\n**SHA-256**: `1bf9432b10e81b4142f4cb688c4712767985f620230556b1370a7fcfbf189178`\r\n\r\n\r\n---\r\n\r\n**OS**: 26.5-stable · **Codename**: Genesis · **Kernel**: Boredkernel 4.2.0-stable \r\n<img width=\"3420\" height=\"2150\" alt=\"Screenshot 2026-05-01 at 21 13 47\" src=\"https://github.com/user-attachments/assets/aaaf38aa-6550-4e61-b138-eb6456d9c243\" />\r\n",
-    "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/26.5.0/boredos.iso"
+    "name": "V26.6.0-RC1 \"Aimless Albatross\"",
+    "tag_name": "26.6.0-RC1",
+    "html_url": "https://github.com/BoredDevNL/BoredOS/releases/tag/26.6.0-RC1",
+    "published_at": "2026-05-15T20:43:28Z",
+    "body": "## Major Milestone: Native Disk Installation\r\n\r\nBoredOS is now **fully installable to disk**. This transition from a RAM-based/live-only environment to a persistent, disk-backed operating system is made possible by several key additions in this release:\r\n\r\n- **Official System Installer**: Introducing `boredos_install`, a dedicated utility to manage the installation process.\r\n- **Advanced Disk Management**: Added kernel-level support for GPT and MBR writing, partition recognition, and disk rescanning.\r\n- **Persistent Storage**: Implemented root filesystem pivoting and persistence provisioning, allowing the OS to run directly from physical storage.\r\n- **Filesystem Utilities**: New `fdisk` and `mkfs_fat32` tools for partitioning and formatting drives natively.\r\n\r\n## I2C & Input Subsystem\r\n\r\nA significant new subsystem has been added to support modern laptop hardware:\r\n\r\n- **I2C Subsystem**: Initial implementation of the I2C bus driver framework.\r\n- **Intel LPSS Support**: Added driver for Intel Low Power Subsystem (LPSS) I2C controllers.\r\n- **Synopsys DesignWare Driver**: Support for DesignWare I2C IP blocks commonly found in modern SoCs.\r\n- **ACPI Integration**: Automated enumeration of I2C devices via ACPI; improved AML parsing for I2C resources; added `acpi_i2c` bridge for device discovery.\r\n- **I2C-HID Support**: Initial foundation for I2C-based human interface devices.\r\n\r\n## Core Kernel & Architecture\r\n\r\n- **User Programs mapped with User Pages**: Updated the user programs to use User Pages instead of Kernel Pages.\r\n- **Disk-Based Root Support**: Updated boot logic to support booting from a disk-based root filesystem.\r\n- **Kernel-Level TTY File Descriptors**: Implemented kernel-level support for TTY file descriptors, enabling improved shell operator support.\r\n- **ACPI Enhancements**: Implemented ACPI power shutdown support; improved device enumeration and logging.\r\n- **Process Management**: Fixed process slot exhaustion in the process lifecycle; prevented infinite loops during process termination.\r\n- **Memory Management**: Hardened the slab allocator; fixed paging race conditions.\r\n- **Boot Logic**: Added support for command-line flags at boot; optimised kernel console by removing unnecessary frame flipping, resulting in faster boot times.\r\n- **Networking**: Improved network stability and resource management.\r\n- **Hardware Support**: Improved PS/2 hardware correctness.\r\n\r\n## Filesystem & Storage\r\n\r\n- **FAT32 Enhancements**: Implemented Long File Name (LFN) support; added root volume abstraction.\r\n- **Disk Management**: Added GPT and MBR write support; implemented disk rescan; fixed AHCI slot bugs and partition recognition after `fdisk`.\r\n- **Root Filesystem Pivoting**: Implemented root filesystem pivoting and persistence provisioning.\r\n- **New Utilities**: FAT32 formatting utility (`mkfs_fat32`); `statfs` support for filesystem statistics.\r\n- **Procfs**: Added datetime information to `procfs`.\r\n\r\n## Shell & CLI Utilities\r\n\r\n- **Shell Operators**: `bsh` now supports a comprehensive set of operators:\r\n  - Pipes: `|`\r\n  - Redirections: `>`, `>>`, `<`\r\n  - Logic/Control: `&`, `&&`, `||`, `;`\r\n- **New & Updated Commands**:\r\n  - `grep`: Full-featured, with `-r`, `-v`, `-l`, `-w`, and `-x` flag support.\r\n  - `find`: New utility for locating files.\r\n  - `du`: Disk usage reporting with `-H` support.\r\n  - `df`: Filesystem disk space usage reporting.\r\n  - `lsblk`: Disk listing command.\r\n  - `time`: Measures process execution time (aliased from `ptime`).\r\n  - `ps`: Process status utility.\r\n  - `hexdump`: Hexadecimal dump utility.\r\n  - `fdisk`: Disk partitioning utility.\r\n  - `mkfs_fat`: FAT filesystem formatting tool.\r\n  - `boredos_install`: Official system installer.\r\n  - `sysfetch`: Updated with uptime, datetime, and CPU information.\r\n\r\n## Graphical Environment & Window Manager\r\n\r\n- **Rendering Optimizations**: Optimized graphics rendering with caching; implemented thread-safe glyph caching.\r\n- **Branding & Assets**: New logo, boot splash, and ASCII art; multiple new wallpapers including `orbital.png`, `Drift.png`, `squiggly.png`, `Web-Of-Connectivity.png`, `flowerdark/light.jpg`, `bored bird.png` and `boredshadow.png`.\r\n\r\n## Userland SDK & Libc\r\n\r\n- **Toolchain**: Integrated TCC (Tiny C Compiler) as the native userland compiler; vendored into the repository for a self-hosted build environment.\r\n- **Libc Enhancements**: Added disk management syscalls; expanded `stdio` support; standardised string functions for freestanding environments; replaced `sys_yield` with `sleep` for improved idle efficiency; added support for `mman.h`, `ucontext.h`, and improved POSIX I/O.\r\n- **SDK**: Updated headers including `assert.h`, `ctype.h`, `errno.h`, `fcntl.h`, `math.h`, `signal.h`, `unistd.h`, and more.\r\n\r\n## Build System \r\n\r\n- **Makefile Improvements**: Modernised initrd structure and asset management; implemented automatic source file detection; standardised object file naming with `libc_` prefix; added platform detection for generic `make run` rules.\r\n\r\n\r\n## Contributors\r\n\r\n[BoredDevNL](https://github.com/BoredDevNL)\r\n[Lluciocc](https://github.com/Lluciocc)\r\n[Mellurboo](https://github.com/Mellurboo)\r\n[janevers-sys](https://github.com/janevers-sys)\r\n[zeyadhost](https://github.com/zeyadhost)\r\n[artemix1508](https://github.com/artemix1508)\r\n[qwroffc](https://github.com/qwroffc)\r\n[whitehai11](https://github.com/whitehai11)\r\n[naplon74](https://github.com/naplon74)\r\n[pixelyblah](https://github.com/pixelyblah)\r\n[toiletalphamale](https://github.com/toiletalphamale)\r\n\r\n\r\n<img width=\"1920\" height=\"1080\" alt=\"Screenshot 2026-05-15 at 22 42 51\" src=\"https://github.com/user-attachments/assets/e7f85e28-2b2d-41b1-bd05-7dc72c743a86\" />\r\n",
+    "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/26.6.0-RC1/boredos.iso"
   },
   "nightlyRelease": {
-    "name": "Nightly Build (4f17e07)",
+    "name": "Nightly Build (1297232)",
     "tag_name": "nightly",
     "html_url": "https://github.com/BoredDevNL/BoredOS/releases/tag/nightly",
     "published_at": "2026-04-19T22:06:08Z",
-    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `4f17e0787ce45316a7ecc313cc5af35e35af852f`\n- Short hash: `4f17e07`\n",
+    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `1297232a26614b14eae622cdcac4a15c164546b6`\n- Short hash: `1297232`\n",
     "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/nightly/boredos.iso"
   }
 }
