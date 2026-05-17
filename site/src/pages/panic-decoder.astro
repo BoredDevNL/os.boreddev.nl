@@ -1,0 +1,525 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Panic Decoder" description="Decode BoredOS kernel panic signatures. Paste a crash signature to diagnose the issue.">
+  <section class="section">
+    <div class="container">
+      <div class="panic-header" data-reveal>
+        <span class="eyebrow">Diagnostics</span>
+        <h1>Kernel Panic Decoder</h1>
+        <p class="panic-lede">Paste the crash signature below. The URL auto-updates with <code>?sig=</code> so you can share crash information by copying the URL.</p>
+      </div>
+
+      <div class="panic-card" data-reveal>
+        <div class="panic-input-group">
+          <label for="crashInput">Crash Signature</label>
+          <input type="text" id="crashInput" autocomplete="off" spellcheck="false" placeholder="Paste base64 crash signature..." />
+          <div id="errorMsg" class="panic-error">Invalid format.</div>
+        </div>
+
+        <div id="resultBox" class="panic-result" style="display:none;">
+          <div class="panic-verdict" id="verdict"></div>
+
+          <div class="panic-data-grid">
+            <div class="panic-data-item">
+              <span class="panic-data-label">Exception Type</span>
+              <span class="panic-data-value" id="valVector">N/A</span>
+            </div>
+            <div class="panic-data-item">
+              <span class="panic-data-label">Fault Address (CR2)</span>
+              <span class="panic-data-value" id="valCR2">0x0</span>
+            </div>
+            <div class="panic-data-item">
+              <span class="panic-data-label">Instruction Pointer</span>
+              <span class="panic-data-value" id="valRIP">0x0</span>
+            </div>
+            <div class="panic-data-item">
+              <span class="panic-data-label">Exception Error Code</span>
+              <span class="panic-data-value" id="valError">0x0</span>
+            </div>
+          </div>
+
+          <div class="panic-hint" id="hintBox">
+            <span id="hintText">No suggestion available.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panic-card panic-lookup" data-reveal>
+        <h2>String-Based Panics</h2>
+        <p class="panic-lookup-desc">ACPI and boot-time panics don't use a binary signature. Search by keyword below.</p>
+        <div class="panic-input-group">
+          <label for="stringSearch">Search panic messages</label>
+          <input type="text" id="stringSearch" autocomplete="off" spellcheck="false" placeholder="e.g. RSDP, FADT, framebuffer..." />
+        </div>
+        <div id="stringResults" class="panic-string-results"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <style is:global>
+    .panic-header {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .panic-header .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .panic-header h1 {
+      font-family: "Fraunces", "Georgia", serif;
+      font-weight: 600;
+      font-size: clamp(28px, 4vw, 46px);
+      margin: 0;
+    }
+
+    .panic-lede {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(15px, 1.4vw, 18px);
+      line-height: 1.6;
+    }
+
+    .panic-lede code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9em;
+    }
+
+    .panic-card {
+      padding: clamp(24px, 4vw, 40px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--glass-opaque);
+      margin-bottom: 24px;
+    }
+
+    .panic-card h2 {
+      font-family: "Fraunces", "Georgia", serif;
+      font-weight: 600;
+      font-size: clamp(20px, 2.5vw, 28px);
+      margin: 0 0 8px;
+    }
+
+    .panic-lookup-desc {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0 0 20px;
+    }
+
+    .panic-input-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .panic-input-group label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .panic-input-group input {
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      font-size: 15px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: var(--bg);
+      color: var(--text);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .panic-input-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(137, 148, 230, 0.2);
+    }
+
+    .panic-input-group input::placeholder {
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .panic-error {
+      display: none;
+      color: #e74c3c;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    :root.dark .panic-error {
+      color: var(--accent-3);
+    }
+
+    .panic-result {
+      margin-top: 24px;
+    }
+
+    .panic-verdict {
+      font-size: clamp(16px, 1.6vw, 20px);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panic-verdict b.error {
+      color: #e74c3c;
+    }
+
+    :root.dark .panic-verdict b.error {
+      color: var(--accent-3);
+    }
+
+    .panic-verdict b.accent {
+      color: var(--accent);
+    }
+
+    .panic-data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .panic-data-item {
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--glass);
+    }
+
+    .panic-data-label {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .panic-data-value {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    .panic-hint {
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--glass);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .panic-string-results {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .panic-string-match {
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--glass);
+      font-size: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .panic-string-match .match-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+
+    .match-tag.tag-acpi {
+      background: rgba(31, 111, 235, 0.12);
+      color: var(--accent);
+    }
+
+    .match-tag.tag-boot {
+      background: rgba(255, 143, 90, 0.12);
+      color: var(--accent-3);
+    }
+
+    :root.dark .match-tag.tag-acpi {
+      background: rgba(137, 148, 230, 0.15);
+    }
+
+    :root.dark .match-tag.tag-boot {
+      background: rgba(255, 123, 114, 0.15);
+    }
+
+    .panic-no-results {
+      color: var(--muted);
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+
+  <script is:inline>
+    const EXC_NAMES = {
+      0: "Division By Zero",
+      1: "Debug",
+      2: "Non-Maskable Interrupt",
+      3: "Breakpoint",
+      4: "Into Detected Overflow",
+      5: "Out of Bounds",
+      6: "Invalid Opcode",
+      7: "No Coprocessor",
+      8: "Double Fault",
+      9: "Coprocessor Segment Overrun",
+      10: "Bad TSS",
+      11: "Segment Not Present",
+      12: "Stack Fault",
+      13: "General Protection Fault",
+      14: "Page Fault",
+      15: "Unknown Interrupt",
+      16: "Coprocessor Fault",
+      17: "Alignment Check",
+      18: "Machine Check",
+      19: "SIMD Floating-Point Exception",
+      20: "Virtualization Exception",
+      21: "Control Protection Exception",
+      28: "Hypervisor Injection Exception",
+      29: "VMM Communication Exception",
+      30: "Security Exception"
+    };
+
+    const ACPI_PANICS = [
+      "ACPI RSDP not provided by the Bootloader",
+      "ACPI Invalid RSDP address provided by the Bootloader",
+      "ACPI does not provide a required RSDP",
+      "bad RSDP checksum",
+      "FADT not found",
+      "bad FADT checksum",
+      "Enable timeout",
+      "MADT not found",
+      "bad MADT checksum"
+    ];
+
+    const BOOT_HALTS = [
+      "No framebuffer! Halting.",
+      "No usable memory for heap! Check Limine memmap."
+    ];
+
+    const inputEl = document.getElementById('crashInput');
+    const resultBox = document.getElementById('resultBox');
+    const errorMsg = document.getElementById('errorMsg');
+
+    window.addEventListener('load', () => {
+      const params = new URLSearchParams(window.location.search);
+      const sig = params.get('sig');
+      if (sig) {
+        inputEl.value = sig;
+        processSignature(sig);
+      }
+    });
+
+    function updateURL(sig) {
+      const newUrl = sig
+        ? `${window.location.origin}${window.location.pathname}?sig=${encodeURIComponent(sig)}`
+        : window.location.pathname;
+      window.history.replaceState({ path: newUrl }, '', newUrl);
+    }
+
+    function processSignature(inputValue) {
+      const cleanData = inputValue.replace(/\s+/g, '');
+
+      if (!cleanData) {
+        resultBox.style.display = 'none';
+        errorMsg.style.display = 'none';
+        updateURL('');
+        return;
+      }
+
+      try {
+        const binaryString = atob(cleanData);
+        const len = binaryString.length;
+        const bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+          bytes[i] = binaryString.charCodeAt(i);
+        }
+
+        if (len < 21) {
+          throw new Error(`Data too short (${len} bytes). Expected 21.`);
+        }
+
+        const view = new DataView(bytes.buffer);
+        const rip = view.getBigUint64(0, true);
+        const cr2 = view.getBigUint64(8, true);
+        const err = view.getUint32(16, true);
+        const vec = view.getUint8(20);
+
+        errorMsg.style.display = 'none';
+        resultBox.style.display = 'block';
+
+        const ripHex = "0x" + rip.toString(16).toUpperCase().padStart(16, '0');
+        const cr2Hex = "0x" + cr2.toString(16).toUpperCase().padStart(16, '0');
+
+        document.getElementById('valVector').textContent = vec + ' (' + (EXC_NAMES[vec] || 'Unknown') + ')';
+        document.getElementById('valRIP').textContent = ripHex;
+        document.getElementById('valError').textContent = "0x" + err.toString(16).toUpperCase();
+
+        var cr2Display = document.getElementById('valCR2');
+        if (cr2Display) cr2Display.textContent = cr2Hex;
+
+        updateAnalysis(vec, err, cr2Hex);
+        updateURL(inputValue);
+
+      } catch (e) {
+        console.error("Decode Error:", e.message);
+        resultBox.style.display = 'none';
+        errorMsg.style.display = 'block';
+        errorMsg.textContent = "Invalid Format: " + e.message;
+      }
+    }
+
+    inputEl.addEventListener('input', function(e) {
+      processSignature(e.target.value);
+    });
+
+    function updateAnalysis(vec, err, cr2Hex) {
+      var verdict = "";
+      var hint = "";
+      var vText = document.getElementById('verdict');
+      var hText = document.getElementById('hintText');
+
+      if (vec === 14) {
+        var P = (err & 0x1);
+        var W = (err & 0x2);
+        var U = (err & 0x4);
+        var I = (err & 0x10);
+        var addrNum = BigInt(cr2Hex);
+
+        verdict = 'The CPU encountered a <b class="error">Page Fault</b> at <b class="accent">' + cr2Hex + '</b> while <b class="error">' + (I ? 'fetching code' : (W ? 'writing data' : 'reading data')) + '</b>.';
+
+        if (!P) {
+          if (addrNum < 0x1000n) {
+            hint = "A NULL pointer was dereferenced. This is a bug \u2014 please report it.";
+          } else if (addrNum >= 0xFFFF800000000000n) {
+            hint = "BoredOS attempted to access a kernel-space address that wasn't paged. This is a bug \u2014 please report it.";
+          } else {
+            hint = "Attempted to access a user-space memory address that wasn't mapped. This is a bug \u2014 please report it.";
+          }
+        } else {
+          if (W && !U) {
+            hint = "Tried to write to a read-only page. This is a bug \u2014 please report it.";
+          } else if (I) {
+            hint = "Tried to execute code from a page marked as no-execute. This is a bug \u2014 please report it.";
+          } else if (U && addrNum >= 0xFFFF800000000000n) {
+            hint = "User-mode code tried to access a kernel-mode address.";
+          } else {
+            hint = "Insufficient privileges for this memory operation.";
+          }
+        }
+
+      } else if (vec === 13) {
+        verdict = '<b class="error">General Protection Fault</b>';
+        hint = "An invalid segment, privilege, descriptor, or memory access occurred that violates CPU protection rules. This is a bug \u2014 please report it.";
+
+      } else if (vec === 8) {
+        verdict = '<b class="error">Double Fault</b>';
+        hint = "The CPU encountered another exception while trying to handle a previous one. This could indicate a corrupt IDT. This is a bug \u2014 please report it.";
+
+      } else if (vec === 0) {
+        verdict = '<b class="error">Division By Zero</b>';
+        hint = "Something attempted to divide by zero.";
+
+      } else if (vec === 6) {
+        verdict = '<b class="error">Invalid Opcode</b>';
+        hint = "The CPU tried to execute a byte that isn't a valid instruction. Either your CPU doesn't support an instruction, or it tried to execute a buffer.";
+
+      } else if (vec === 12) {
+        verdict = '<b class="error">Stack Fault</b>';
+        hint = "The stack pointer is likely invalid.";
+
+      } else if (vec === 2) {
+        verdict = '<b class="error">Non-Maskable Interrupt</b>';
+        hint = "A hardware-level interrupt that cannot be masked. Usually indicates a hardware failure.";
+
+      } else if (vec === 18) {
+        verdict = '<b class="error">Machine Check</b>';
+        hint = "The CPU detected a hardware error. Check your RAM and CPU temperatures.";
+
+      } else if (vec === 17) {
+        verdict = '<b class="error">Alignment Check</b>';
+        hint = "A memory alignment violation was detected.";
+
+      } else {
+        verdict = 'System halted: <b class="error">' + (EXC_NAMES[vec] || 'Internal Exception') + '</b>';
+        hint = "Please report this \u2014 it's either a hardware problem or a kernel bug.";
+      }
+
+      vText.innerHTML = verdict;
+      hText.textContent = hint;
+    }
+
+    var stringSearchEl = document.getElementById('stringSearch');
+    var stringResultsEl = document.getElementById('stringResults');
+
+    var allStringPanics = ACPI_PANICS.map(function(msg) {
+      var display = msg.replace(/^ACPI\s+/, '');
+      return { msg: display, type: 'ACPI' };
+    }).concat(BOOT_HALTS.map(function(msg) {
+      return { msg: msg, type: 'Boot' };
+    }));
+
+    stringSearchEl.addEventListener('input', function(e) {
+      var query = e.target.value.trim().toLowerCase();
+      stringResultsEl.innerHTML = '';
+
+      if (!query) return;
+
+      var matches = allStringPanics.filter(function(item) {
+        return item.msg.toLowerCase().indexOf(query) !== -1;
+      });
+
+      if (matches.length === 0) {
+        stringResultsEl.innerHTML = '<div class="panic-no-results">No matching panic messages found.</div>';
+        return;
+      }
+
+      matches.forEach(function(item) {
+        var div = document.createElement('div');
+        div.className = 'panic-string-match';
+
+        var tag = document.createElement('span');
+        tag.className = 'match-tag tag-' + item.type.toLowerCase();
+        tag.textContent = item.type;
+
+        var text = document.createElement('span');
+        text.textContent = item.msg;
+
+        div.appendChild(tag);
+        div.appendChild(text);
+        stringResultsEl.appendChild(div);
+      });
+    });
+
+  </script>
+</BaseLayout>
