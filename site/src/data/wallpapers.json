@@ -178,5 +178,23 @@
       "href": "https://github.com/qwroffc",
       "avatar": "https://github.com/qwroffc.png"
     }
-  }
+  },
+  {
+    "name": "Abyss Blue",
+    "path": "/branding/wallpapers/AbyssBlue.png",
+    "credit": {
+      "label": "cxldest",
+      "href": "https://github.com/cxldest",
+      "avatar": "https://github.com/cxldest.png"
+    }
+  },
+  {
+    "name": "Abyss Grey",
+    "path": "/branding/wallpapers/AbyssGrey.png",
+    "credit": {
+      "label": "cxldest",
+      "href": "https://github.com/cxldest",
+      "avatar": "https://github.com/cxldest.png"
+    }
+  }    
 ]
