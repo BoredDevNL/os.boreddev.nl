@@ -10,7 +10,7 @@ const dataDir = path.join(repoRoot, "site", "src", "data");
 const outputPath = path.join(dataDir, "github-data.json");
 const cachePath = path.join(dataDir, "github-cache.json");
 
-const repo = process.env.GITHUB_REPO || "boreddevnl/BoredOS";
+const repo = process.env.GITHUB_REPO || "BoredOS/BoredOS";
 const [owner, name] = repo.split("/");
 
 const headers = {
