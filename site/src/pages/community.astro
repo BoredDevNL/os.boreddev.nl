@@ -4,23 +4,47 @@ import SectionHeading from "../components/SectionHeading.astro";
 import ContributorsGrid from "../components/ContributorsGrid.astro";
 import githubData from "../data/github-data.json";
 import wallpapersData from "../data/wallpapers.json";
+import contributorMetaRaw from "../data/contributor-meta.json";
+
+interface ContributorMeta {
+  maintainer?: boolean;
+}
+
+const contributorMeta = contributorMetaRaw as Record<string, ContributorMeta>;
+
+interface Contributor {
+  login: string;
+  avatar_url: string;
+  html_url: string;
+  contributions?: number;
+  contributionLabel?: string;
+  maintainer?: boolean;
+  note?: string;
+}
+
+const applyMeta = (contributor: Contributor): Contributor => {
+  const key = (contributor.login || "").toLowerCase();
+  const meta = contributorMeta[key] || {};
+  return { ...contributor, ...meta };
+};
+
+const getGithubAvatar = (href: string): string => {
+  if (!href) return "";
+  try {
+    const m = String(href).match(/github\.com\/([^\/\s?#]+)/i);
+    if (m && m[1]) return `https://github.com/${m[1]}.png`;
+  } catch (e) {
+    /* ignore */
+  }
+  return "";
+};
 
 const wallpaperArtists = Array.from(
-  wallpapersData.reduce((map, wallpaper) => {
+  wallpapersData.reduce((map: Map<string, Contributor>, wallpaper) => {
     const credit = wallpaper.credit || {};
     const key = (credit.href || credit.label || "").toLowerCase();
     if (!key || map.has(key)) {
       return map;
-    }
-    function getGithubAvatar(href) {
-      if (!href) return "";
-      try {
-        const m = String(href).match(/github\.com\/([^\/\s?#]+)/i);
-        if (m && m[1]) return `https://github.com/${m[1]}.png`;
-      } catch (e) {
-        /* ignore */
-      }
-      return "";
     }
 
     map.set(key, {
@@ -31,17 +55,20 @@ const wallpaperArtists = Array.from(
     });
 
     return map;
-  }, new Map())
+  }, new Map<string, Contributor>())
   .values()
 );
 
 const contributorKeys = new Set(
-  githubData.contributors.map((contributor) =>
-    (contributor.html_url || contributor.login || "").toLowerCase()
+  githubData.contributors.map((c) =>
+    (c.html_url || c.login || "").toLowerCase()
   )
 );
 
-const developers = githubData.contributors;
+// metadata
+const developers: Contributor[] = githubData.contributors
+  .map((c) => applyMeta(c as Contributor))
+  .sort((a, b) => (b.maintainer ? 1 : 0) - (a.maintainer ? 1 : 0));
 
 const wallpaperArtistsOnly = wallpaperArtists.filter(
   (artist) =>

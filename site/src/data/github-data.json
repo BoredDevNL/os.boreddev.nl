@@ -4,13 +4,13 @@
       "login": "BoredDevNL",
       "avatar_url": "https://avatars.githubusercontent.com/u/169399844?v=4",
       "html_url": "https://github.com/BoredDevNL",
-      "contributions": 462
+      "contributions": 463
     },
     {
       "login": "Lluciocc",
       "avatar_url": "https://avatars.githubusercontent.com/u/114759545?v=4",
       "html_url": "https://github.com/Lluciocc",
-      "contributions": 68
+      "contributions": 69
     },
     {
       "login": "janevers-sys",
@@ -22,7 +22,7 @@
       "login": "Mellurboo",
       "avatar_url": "https://avatars.githubusercontent.com/u/102391892?v=4",
       "html_url": "https://github.com/Mellurboo",
-      "contributions": 14
+      "contributions": 15
     },
     {
       "login": "zeyadhost",
@@ -46,11 +46,11 @@
     "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/26.6.0-RC1/boredos.iso"
   },
   "nightlyRelease": {
-    "name": "Nightly Build (1297232)",
+    "name": "Nightly Build (ef389c7)",
     "tag_name": "nightly",
     "html_url": "https://github.com/BoredDevNL/BoredOS/releases/tag/nightly",
     "published_at": "2026-04-19T22:06:08Z",
-    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `1297232a26614b14eae622cdcac4a15c164546b6`\n- Short hash: `1297232`\n",
+    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `ef389c7ea263512e39c000f448a9647d58739ab5`\n- Short hash: `ef389c7`\n",
     "iso_url": "https://github.com/BoredDevNL/BoredOS/releases/download/nightly/boredos.iso"
   }
 }

@@ -6,7 +6,7 @@ import wallpapersData from "../data/wallpapers.json";
 const baseUrl = import.meta.env.BASE_URL || "/";
 const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
 
-const GROUPABLE_PREFIXES = ['Flower', 'Soft'];
+const GROUPABLE_PREFIXES = ['Flower', 'Soft', 'Abyss'];
 
 const groupedWallpapers = wallpapersData.reduce((acc, wp) => {
   const parts = wp.name.split(' ');
