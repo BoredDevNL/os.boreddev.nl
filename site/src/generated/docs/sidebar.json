@@ -12,6 +12,10 @@
           {
             "title": "Processes & Scheduling",
             "slug": "architecture/system/processes"
+          },
+          {
+            "title": "TTY & Virtual Terminals",
+            "slug": "architecture/system/tty"
           }
         ]
       },
@@ -54,8 +58,8 @@
         "title": "Graphics",
         "items": [
           {
-            "title": "Window Manager",
-            "slug": "architecture/graphics/window_manager"
+            "title": "Framebuffer Device",
+            "slug": "architecture/graphics/framebuffer"
           }
         ]
       },
@@ -108,12 +112,8 @@
         "slug": "appdev/libc_reference"
       },
       {
-        "title": "UI API",
-        "slug": "appdev/ui_api"
-      },
-      {
-        "title": "Widget API",
-        "slug": "appdev/widget_api"
+        "title": "Raw Graphics Guide",
+        "slug": "appdev/framebuffer_drawing"
       },
       {
         "title": "Custom Apps",
@@ -128,10 +128,6 @@
         "slug": "appdev/examples"
       },
       {
-        "title": "Grapher",
-        "slug": "appdev/grapher"
-      },
-      {
         "title": "Native TCC",
         "slug": "appdev/tcc"
       }
@@ -139,23 +135,6 @@
   },
   {
     "title": "Usage",
-    "items": [
-      {
-        "title": "Desktop",
-        "slug": "usage/desktop"
-      },
-      {
-        "title": "Lumos",
-        "slug": "usage/lumos"
-      },
-      {
-        "title": "Terminal",
-        "slug": "usage/terminal"
-      },
-      {
-        "title": "Launching Apps",
-        "slug": "usage/launching_apps"
-      }
-    ]
+    "items": []
   }
 ]
