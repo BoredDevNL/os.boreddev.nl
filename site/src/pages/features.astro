@@ -5,39 +5,31 @@ import FeatureGrid from "../components/FeatureGrid.astro";
 
 const kernelFeatures = [
   {
-    title: "x86_64 long mode",
-    description: "Native 64-bit kernel with paging, fast context switches, and a clean 64-bit address space."
+    title: "SMP",
+    description: "Multi-core with IPI-based scheduling and cross-core synchronization"
   },
   {
-    title: "SMP-aware scheduling",
-    description: "Preemptive scheduler with per-CPU state, LAPIC/IPI coordination, and spinlock-safe subsystems."
+    title: "VFS",
+    description: "Unified interface over FAT32, TAR, ProcFS, and SysFS."
   },
   {
-    title: "Memory isolation",
-    description: "Bitmap PMM, slab allocator, and per-CPU caches with kernel/user separation."
-  },
-  {
-    title: "SATA / AHCI drivers",
-    description: "Native AHCI driver with DMA support for direct read/write access to physical hard drives and SSDs."
+    title: "Virtual Terminals",
+    description: "10 independent TTYs (/dev/tty1–/dev/tty10), each with its own graphics buffer."
   }
 ];
 
 const desktopFeatures = [
   {
-    title: "Lumos search",
-    description: "Instant, system-wide search with fuzzy matching and quick-launch capabilities."
+    title: "Nova Compositor",
+    description: "Userland window server over a UNIX socket."
   },
   {
-    title: "BoredWM",
-    description: "A modern stacking window manager with grid-snapped icons and a functional dock."
-  },
-  {
-    title: "LibWidget toolkit",
+    title: "libui",
     description: "Native UI components for fast, consistent application development."
   },
   {
-    title: "Typography + media",
-    description: "TrueType font caching and image decoding for PNG, JPEG, and GIF."
+    title: "Window Management",
+    description: "Layered rendering, decorations, focus, and client event routing"
   }
 ];
 
@@ -52,20 +44,7 @@ const networkFeatures = [
   }
 ];
 
-const appFeatures = [
-  {
-    title: "Grapher",
-    description: "Interactive math plotting with 2D/3D visualization and 4-thread parallel rendering."
-  },
-  {
-    title: "AppDev SDK",
-    description: "Comprehensive SDK with ELF metadata support, rich headers, and syscall wrappers."
-  },
-  {
-    title: "Native C compiler",
-    description: "Compile and run C applications directly on BoredOS using the Tiny C Compiler."
-  }
-];
+
 ---
 <BaseLayout title="Features" description="Explore the kernel, desktop, and app tooling that power BoredOS.">
   <section class="section">
@@ -95,16 +74,6 @@ const appFeatures = [
         title="Networking stack."
         description="lwIP services with DHCP/DNS/ICMP and NIC driver support for common hardware." />
       <FeatureGrid features={networkFeatures} layout="compact-2" />
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <SectionHeading
-        eyebrow="Applications"
-        title="Professional tools & SDK."
-        description="Build and run high-performance apps with our native toolchain, ELF metadata support, and rich SDK." />
-      <FeatureGrid features={appFeatures} layout="compact-3" />
     </div>
   </section>
 </BaseLayout>
