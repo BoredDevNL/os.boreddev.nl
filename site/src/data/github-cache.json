@@ -4,13 +4,13 @@
       "login": "BoredDevNL",
       "avatar_url": "https://avatars.githubusercontent.com/u/169399844?v=4",
       "html_url": "https://github.com/BoredDevNL",
-      "contributions": 509
+      "contributions": 539
     },
     {
       "login": "Lluciocc",
       "avatar_url": "https://avatars.githubusercontent.com/u/114759545?v=4",
       "html_url": "https://github.com/Lluciocc",
-      "contributions": 68
+      "contributions": 70
     },
     {
       "login": "janevers-sys",
@@ -38,19 +38,19 @@
     }
   ],
   "latestRelease": {
-    "name": "26.6.0-RC2",
-    "tag_name": "26.6.0-RC2",
-    "html_url": "https://github.com/BoredOS/BoredOS/releases/tag/26.6.0-RC2",
+    "name": "26.6.0",
+    "tag_name": "26.6.0",
+    "html_url": "https://github.com/BoredOS/BoredOS/releases/tag/26.6.0",
     "published_at": "2026-05-19T21:15:06Z",
     "body": "* Improved Kernel Panic by @Mellurboo a more verbose, better looking panic screen so we can diagnose your problem better!\r\n* Fixed text cut off with optionally padded bounding box & Kernel Panic Grammer fix by @Mellurboo this fixes text cutoff\r\n* feat: add small ASCII art logo option to sysfetch by @RicePollution for smaller screens, you can optionally use a smaller logo\r\n* fix: resolve OS freeze on terminal input by @RicePollution \r\n* Refactoring the explorer by @Lluciocc, A beautiful new explorer experience replacing the old outdated one, looks better and feels better.\r\n\r\nAs we get closer to Release-26.6.0 we are getting more and more exited with the amazing contributions and growth of the project\r\nAnd with the great rework we get closer to posix compliance, this is just a small stepping stone to what will be something for\r\nAll to enjoy.\r\n\r\nKeep the issues and pre coming we love them all!",
-    "iso_url": "https://github.com/BoredOS/BoredOS/releases/download/26.6.0-RC2/boredos.iso"
+    "iso_url": "https://github.com/BoredOS/BoredOS/releases/download/26.6.0/boredos.iso"
   },
   "nightlyRelease": {
-    "name": "Nightly Build (6c69e4c)",
+    "name": "Nightly Build (e1f40c4)",
     "tag_name": "nightly",
     "html_url": "https://github.com/BoredOS/BoredOS/releases/tag/nightly",
     "published_at": "2026-04-19T22:06:08Z",
-    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `6c69e4ce5bd8992682df0575e2bc24495956415a`\n- Short hash: `6c69e4c`\n",
+    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `e1f40c4758d417503d777a46be6ef8dd9706a931`\n- Short hash: `e1f40c4`\n",
     "iso_url": "https://github.com/BoredOS/BoredOS/releases/download/nightly/boredos.iso"
   }
 }
