@@ -20,16 +20,11 @@ const withBase = (path) => `${baseUrl}${path.replace(/^\//, "")}`;
       <SectionHeading
         eyebrow="Downloads"
         title="Grab the latest release."
-        description="Download the latest stable release." />
+        description="Download the latest preview release." />
       <div class="download-stack">
         <DownloadCard release={githubData.latestRelease} label="Latest release" />
         {githubData.nightlyRelease && (
           <div class="mt-12">
-            <SectionHeading
-              eyebrow="Experimental"
-              title="Nightly builds."
-              description="Get a sneak peek at the latest features." />
-            <DownloadCard release={githubData.nightlyRelease} label="Nightly build" />
           </div>
         )}
       </div>

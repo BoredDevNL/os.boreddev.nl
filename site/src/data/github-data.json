@@ -4,19 +4,43 @@
       "login": "BoredDevNL",
       "avatar_url": "https://avatars.githubusercontent.com/u/169399844?v=4",
       "html_url": "https://github.com/BoredDevNL",
-      "contributions": 576
+      "contributions": 584
+    },
+    {
+      "login": "awesomekling",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5954907?v=4",
+      "html_url": "https://github.com/awesomekling",
+      "contributions": 180
     },
     {
       "login": "Lluciocc",
       "avatar_url": "https://avatars.githubusercontent.com/u/114759545?v=4",
       "html_url": "https://github.com/Lluciocc",
-      "contributions": 77
+      "contributions": 76
     },
     {
-      "login": "tayoky",
-      "avatar_url": "https://avatars.githubusercontent.com/u/139649656?v=4",
-      "html_url": "https://github.com/tayoky",
-      "contributions": 46
+      "login": "electrikmilk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4368524?v=4",
+      "html_url": "https://github.com/electrikmilk",
+      "contributions": 35
+    },
+    {
+      "login": "thankyouverycool",
+      "avatar_url": "https://avatars.githubusercontent.com/u/66646555?v=4",
+      "html_url": "https://github.com/thankyouverycool",
+      "contributions": 30
+    },
+    {
+      "login": "bcoles",
+      "avatar_url": "https://avatars.githubusercontent.com/u/434827?v=4",
+      "html_url": "https://github.com/bcoles",
+      "contributions": 19
+    },
+    {
+      "login": "cubiclove",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7754483?v=4",
+      "html_url": "https://github.com/cubiclove",
+      "contributions": 19
     },
     {
       "login": "janevers-sys",
@@ -31,10 +55,244 @@
       "contributions": 15
     },
     {
+      "login": "linusg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19366641?v=4",
+      "html_url": "https://github.com/linusg",
+      "contributions": 12
+    },
+    {
+      "login": "asliturk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2991895?v=4",
+      "html_url": "https://github.com/asliturk",
+      "contributions": 11
+    },
+    {
+      "login": "djwisdom",
+      "avatar_url": "https://avatars.githubusercontent.com/u/391659?v=4",
+      "html_url": "https://github.com/djwisdom",
+      "contributions": 11
+    },
+    {
+      "login": "alichraghi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63465728?v=4",
+      "html_url": "https://github.com/alichraghi",
+      "contributions": 10
+    },
+    {
+      "login": "BenWiederhake",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2690845?v=4",
+      "html_url": "https://github.com/BenWiederhake",
+      "contributions": 10
+    },
+    {
+      "login": "itamar8910",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9247514?v=4",
+      "html_url": "https://github.com/itamar8910",
+      "contributions": 10
+    },
+    {
+      "login": "hughdavenport",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1222607?v=4",
+      "html_url": "https://github.com/hughdavenport",
+      "contributions": 9
+    },
+    {
+      "login": "MacDue",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11597044?v=4",
+      "html_url": "https://github.com/MacDue",
+      "contributions": 9
+    },
+    {
+      "login": "AtkinsSJ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/222642?v=4",
+      "html_url": "https://github.com/AtkinsSJ",
+      "contributions": 7
+    },
+    {
+      "login": "gunnarbeutner",
+      "avatar_url": "https://avatars.githubusercontent.com/u/388571?v=4",
+      "html_url": "https://github.com/gunnarbeutner",
+      "contributions": 6
+    },
+    {
+      "login": "alimpfard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/14001776?v=4",
+      "html_url": "https://github.com/alimpfard",
+      "contributions": 4
+    },
+    {
+      "login": "tlmrgvf",
+      "avatar_url": "https://avatars.githubusercontent.com/u/38764413?v=4",
+      "html_url": "https://github.com/tlmrgvf",
+      "contributions": 4
+    },
+    {
+      "login": "tomuta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10320822?v=4",
+      "html_url": "https://github.com/tomuta",
+      "contributions": 4
+    },
+    {
+      "login": "tslater2006",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1731714?v=4",
+      "html_url": "https://github.com/tslater2006",
+      "contributions": 4
+    },
+    {
+      "login": "xTibor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1627292?v=4",
+      "html_url": "https://github.com/xTibor",
+      "contributions": 4
+    },
+    {
       "login": "zeyadhost",
       "avatar_url": "https://avatars.githubusercontent.com/u/117946311?v=4",
       "html_url": "https://github.com/zeyadhost",
       "contributions": 4
+    },
+    {
+      "login": "bplaat",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19894029?v=4",
+      "html_url": "https://github.com/bplaat",
+      "contributions": 3
+    },
+    {
+      "login": "bugaevc",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10091584?v=4",
+      "html_url": "https://github.com/bugaevc",
+      "contributions": 3
+    },
+    {
+      "login": "circl-lastname",
+      "avatar_url": "https://avatars.githubusercontent.com/u/39885272?v=4",
+      "html_url": "https://github.com/circl-lastname",
+      "contributions": 3
+    },
+    {
+      "login": "hansejo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/83897866?v=4",
+      "html_url": "https://github.com/hansejo",
+      "contributions": 3
+    },
+    {
+      "login": "metmo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/69970419?v=4",
+      "html_url": "https://github.com/metmo",
+      "contributions": 3
+    },
+    {
+      "login": "mimhufford",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5212735?v=4",
+      "html_url": "https://github.com/mimhufford",
+      "contributions": 3
+    },
+    {
+      "login": "nico",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3487?v=4",
+      "html_url": "https://github.com/nico",
+      "contributions": 3
+    },
+    {
+      "login": "nvella",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8158648?v=4",
+      "html_url": "https://github.com/nvella",
+      "contributions": 3
+    },
+    {
+      "login": "petelliott",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8095520?v=4",
+      "html_url": "https://github.com/petelliott",
+      "contributions": 3
+    },
+    {
+      "login": "sleepy-monax",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19665524?v=4",
+      "html_url": "https://github.com/sleepy-monax",
+      "contributions": 3
+    },
+    {
+      "login": "Torstennator",
+      "avatar_url": "https://avatars.githubusercontent.com/u/103676658?v=4",
+      "html_url": "https://github.com/Torstennator",
+      "contributions": 3
+    },
+    {
+      "login": "Faeliore",
+      "avatar_url": "https://avatars.githubusercontent.com/u/87869457?v=4",
+      "html_url": "https://github.com/Faeliore",
+      "contributions": 2
+    },
+    {
+      "login": "jamierocks",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5103549?v=4",
+      "html_url": "https://github.com/jamierocks",
+      "contributions": 2
+    },
+    {
+      "login": "kleinesfilmroellchen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28656157?v=4",
+      "html_url": "https://github.com/kleinesfilmroellchen",
+      "contributions": 2
+    },
+    {
+      "login": "loki495",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20133903?v=4",
+      "html_url": "https://github.com/loki495",
+      "contributions": 2
+    },
+    {
+      "login": "mattco98",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28801118?v=4",
+      "html_url": "https://github.com/mattco98",
+      "contributions": 2
+    },
+    {
+      "login": "mustafaquraish",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9910883?v=4",
+      "html_url": "https://github.com/mustafaquraish",
+      "contributions": 2
+    },
+    {
+      "login": "Quaker762",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4768900?v=4",
+      "html_url": "https://github.com/Quaker762",
+      "contributions": 2
+    },
+    {
+      "login": "redsnout",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82683887?v=4",
+      "html_url": "https://github.com/redsnout",
+      "contributions": 2
+    },
+    {
+      "login": "shannonbooth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/35911232?v=4",
+      "html_url": "https://github.com/shannonbooth",
+      "contributions": 2
+    },
+    {
+      "login": "sin-ack",
+      "avatar_url": "https://avatars.githubusercontent.com/u/77421532?v=4",
+      "html_url": "https://github.com/sin-ack",
+      "contributions": 2
+    },
+    {
+      "login": "sl1m3yy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/117548228?v=4",
+      "html_url": "https://github.com/sl1m3yy",
+      "contributions": 2
+    },
+    {
+      "login": "TheMorc",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13377926?v=4",
+      "html_url": "https://github.com/TheMorc",
+      "contributions": 2
+    },
+    {
+      "login": "TobyAsE",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6002167?v=4",
+      "html_url": "https://github.com/TobyAsE",
+      "contributions": 2
     },
     {
       "login": "whitehai11",
@@ -43,9 +301,237 @@
       "contributions": 2
     },
     {
+      "login": "xeons",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1695893?v=4",
+      "html_url": "https://github.com/xeons",
+      "contributions": 2
+    },
+    {
+      "login": "Xexxa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/93391300?v=4",
+      "html_url": "https://github.com/Xexxa",
+      "contributions": 2
+    },
+    {
+      "login": "ADON15c",
+      "avatar_url": "https://avatars.githubusercontent.com/u/27798256?v=4",
+      "html_url": "https://github.com/ADON15c",
+      "contributions": 1
+    },
+    {
       "login": "artemix1508",
       "avatar_url": "https://avatars.githubusercontent.com/u/273844106?v=4",
       "html_url": "https://github.com/artemix1508",
+      "contributions": 1
+    },
+    {
+      "login": "atdykema",
+      "avatar_url": "https://avatars.githubusercontent.com/u/62975486?v=4",
+      "html_url": "https://github.com/atdykema",
+      "contributions": 1
+    },
+    {
+      "login": "benit8",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10747470?v=4",
+      "html_url": "https://github.com/benit8",
+      "contributions": 1
+    },
+    {
+      "login": "BenJilks",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20001123?v=4",
+      "html_url": "https://github.com/BenJilks",
+      "contributions": 1
+    },
+    {
+      "login": "bmpc",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5331657?v=4",
+      "html_url": "https://github.com/bmpc",
+      "contributions": 1
+    },
+    {
+      "login": "crpz1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8588315?v=4",
+      "html_url": "https://github.com/crpz1",
+      "contributions": 1
+    },
+    {
+      "login": "d1823",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1713491?v=4",
+      "html_url": "https://github.com/d1823",
+      "contributions": 1
+    },
+    {
+      "login": "ebiederstadt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28789887?v=4",
+      "html_url": "https://github.com/ebiederstadt",
+      "contributions": 1
+    },
+    {
+      "login": "fdellwing",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22813377?v=4",
+      "html_url": "https://github.com/fdellwing",
+      "contributions": 1
+    },
+    {
+      "login": "filiphsps",
+      "avatar_url": "https://avatars.githubusercontent.com/u/108444335?v=4",
+      "html_url": "https://github.com/filiphsps",
+      "contributions": 1
+    },
+    {
+      "login": "frhun",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28605587?v=4",
+      "html_url": "https://github.com/frhun",
+      "contributions": 1
+    },
+    {
+      "login": "gigaroby",
+      "avatar_url": "https://avatars.githubusercontent.com/u/824041?v=4",
+      "html_url": "https://github.com/gigaroby",
+      "contributions": 1
+    },
+    {
+      "login": "gmta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3210731?v=4",
+      "html_url": "https://github.com/gmta",
+      "contributions": 1
+    },
+    {
+      "login": "hashem78",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4525797?v=4",
+      "html_url": "https://github.com/hashem78",
+      "contributions": 1
+    },
+    {
+      "login": "IdanHo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16208640?v=4",
+      "html_url": "https://github.com/IdanHo",
+      "contributions": 1
+    },
+    {
+      "login": "idispatch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1037676?v=4",
+      "html_url": "https://github.com/idispatch",
+      "contributions": 1
+    },
+    {
+      "login": "implicitfield",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114500360?v=4",
+      "html_url": "https://github.com/implicitfield",
+      "contributions": 1
+    },
+    {
+      "login": "jackdelahunt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45426048?v=4",
+      "html_url": "https://github.com/jackdelahunt",
+      "contributions": 1
+    },
+    {
+      "login": "jakubiakdev",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63729559?v=4",
+      "html_url": "https://github.com/jakubiakdev",
+      "contributions": 1
+    },
+    {
+      "login": "japetrus",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5879432?v=4",
+      "html_url": "https://github.com/japetrus",
+      "contributions": 1
+    },
+    {
+      "login": "JetStarBlues",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4354703?v=4",
+      "html_url": "https://github.com/JetStarBlues",
+      "contributions": 1
+    },
+    {
+      "login": "jswartzendruber",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63672894?v=4",
+      "html_url": "https://github.com/jswartzendruber",
+      "contributions": 1
+    },
+    {
+      "login": "kostyafarber",
+      "avatar_url": "https://avatars.githubusercontent.com/u/73378227?v=4",
+      "html_url": "https://github.com/kostyafarber",
+      "contributions": 1
+    },
+    {
+      "login": "Lubrsi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25595356?v=4",
+      "html_url": "https://github.com/Lubrsi",
+      "contributions": 1
+    },
+    {
+      "login": "lucastarche",
+      "avatar_url": "https://avatars.githubusercontent.com/u/43870496?v=4",
+      "html_url": "https://github.com/lucastarche",
+      "contributions": 1
+    },
+    {
+      "login": "Maato",
+      "avatar_url": "https://avatars.githubusercontent.com/u/330865?v=4",
+      "html_url": "https://github.com/Maato",
+      "contributions": 1
+    },
+    {
+      "login": "marcosantos98",
+      "avatar_url": "https://avatars.githubusercontent.com/u/101365429?v=4",
+      "html_url": "https://github.com/marcosantos98",
+      "contributions": 1
+    },
+    {
+      "login": "monroeclinton",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52228206?v=4",
+      "html_url": "https://github.com/monroeclinton",
+      "contributions": 1
+    },
+    {
+      "login": "MrRar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16406771?v=4",
+      "html_url": "https://github.com/MrRar",
+      "contributions": 1
+    },
+    {
+      "login": "ne0ndrag0n",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4776559?v=4",
+      "html_url": "https://github.com/ne0ndrag0n",
+      "contributions": 1
+    },
+    {
+      "login": "PF94",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45898787?v=4",
+      "html_url": "https://github.com/PF94",
+      "contributions": 1
+    },
+    {
+      "login": "ReasonablePanic",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82624519?v=4",
+      "html_url": "https://github.com/ReasonablePanic",
+      "contributions": 1
+    },
+    {
+      "login": "slendidev",
+      "avatar_url": "https://avatars.githubusercontent.com/u/32436619?v=4",
+      "html_url": "https://github.com/slendidev",
+      "contributions": 1
+    },
+    {
+      "login": "snooze-alt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/244724208?v=4",
+      "html_url": "https://github.com/snooze-alt",
+      "contributions": 1
+    },
+    {
+      "login": "sppmacd",
+      "avatar_url": "https://avatars.githubusercontent.com/u/42967349?v=4",
+      "html_url": "https://github.com/sppmacd",
+      "contributions": 1
+    },
+    {
+      "login": "theonlyasdk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/168300808?v=4",
+      "html_url": "https://github.com/theonlyasdk",
       "contributions": 1
     },
     {
@@ -53,22 +539,40 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/108672089?v=4",
       "html_url": "https://github.com/thisisaname1928",
       "contributions": 1
+    },
+    {
+      "login": "trflynn89",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5600524?v=4",
+      "html_url": "https://github.com/trflynn89",
+      "contributions": 1
+    },
+    {
+      "login": "vkoskiv",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20117975?v=4",
+      "html_url": "https://github.com/vkoskiv",
+      "contributions": 1
+    },
+    {
+      "login": "zlotny",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6155245?v=4",
+      "html_url": "https://github.com/zlotny",
+      "contributions": 1
     }
   ],
   "latestRelease": {
-    "name": "26.6.0",
-    "tag_name": "26.6.0-RC2",
-    "html_url": "https://github.com/BoredOS/BoredOS/releases/tag/26.6.0-RC2",
-    "published_at": "2026-05-19T21:15:06Z",
-    "body": "* Improved Kernel Panic by @Mellurboo a more verbose, better looking panic screen so we can diagnose your problem better!\r\n* Fixed text cut off with optionally padded bounding box & Kernel Panic Grammer fix by @Mellurboo this fixes text cutoff\r\n* feat: add small ASCII art logo option to sysfetch by @RicePollution for smaller screens, you can optionally use a smaller logo\r\n* fix: resolve OS freeze on terminal input by @RicePollution \r\n* Refactoring the explorer by @Lluciocc, A beautiful new explorer experience replacing the old outdated one, looks better and feels better.\r\n\r\nAs we get closer to Release-26.6.0 we are getting more and more exited with the amazing contributions and growth of the project\r\nAnd with the great rework we get closer to posix compliance, this is just a small stepping stone to what will be something for\r\nAll to enjoy.\r\n\r\nKeep the issues and pre coming we love them all!",
-    "iso_url": "https://github.com/BoredOS/BoredOS/releases/download/26.6.0-RC2/boredos.iso"
-  },
-  "nightlyRelease": {
-    "name": "Nightly Build (14fb966)",
+    "name": "Nightly Build (e2d4844)",
     "tag_name": "nightly",
     "html_url": "https://github.com/BoredOS/BoredOS/releases/tag/nightly",
     "published_at": "2026-04-19T22:06:08Z",
-    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nBuilt from commit:\n- Full hash: `14fb9666fb45fb2250a3d9e93b590c4f73dd4358`\n- Short hash: `14fb966`\n",
+    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nThere will also never be a full release. This is simply meant for people to preview the OS. In\nit's very latest state.\nBuilt from commit:\n- Full hash: `e2d4844a7929f7d60d3853c6a661ba6d2268d4de`\n- Short hash: `e2d4844`\n",
+    "iso_url": "https://github.com/BoredOS/BoredOS/releases/download/nightly/boredos.iso"
+  },
+  "nightlyRelease": {
+    "name": "Nightly Build (e2d4844)",
+    "tag_name": "nightly",
+    "html_url": "https://github.com/BoredOS/BoredOS/releases/tag/nightly",
+    "published_at": "2026-04-19T22:06:08Z",
+    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nThere will also never be a full release. This is simply meant for people to preview the OS. In\nit's very latest state.\nBuilt from commit:\n- Full hash: `e2d4844a7929f7d60d3853c6a661ba6d2268d4de`\n- Short hash: `e2d4844`\n",
     "iso_url": "https://github.com/BoredOS/BoredOS/releases/download/nightly/boredos.iso"
   }
 }
