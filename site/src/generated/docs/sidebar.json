@@ -120,16 +120,24 @@
         "slug": "appdev/custom_apps"
       },
       {
-        "title": "ELF App Metadata",
-        "slug": "appdev/elf_metadata"
-      },
-      {
         "title": "Example Apps",
         "slug": "appdev/examples"
       },
       {
         "title": "Native TCC",
         "slug": "appdev/tcc"
+      },
+      {
+        "title": "Nova Protocol",
+        "slug": "appdev/nova/nova_protocol"
+      },
+      {
+        "title": "Developing Nova Clients",
+        "slug": "appdev/nova/nova_development"
+      },
+      {
+        "title": "Nova ToolKit (NTK)",
+        "slug": "appdev/nova/ntk"
       }
     ]
   },

@@ -12,7 +12,6 @@ const cachePath = path.join(dataDir, "github-cache.json");
 
 const repo = process.env.GITHUB_REPO || "BoredOS/BoredOS";
 const [owner, name] = repo.split("/");
-const org = process.env.GITHUB_ORG || owner;
 
 const headers = {
   "User-Agent": "boredos-site"
@@ -106,12 +105,12 @@ const main = async () => {
   const cache = await loadCache();
 
   try {
-    const [repos, latestRelease, nightlyRelease] = await Promise.all([
-      fetchAllPages(`https://api.github.com/orgs/${org}/repos?type=all&sort=updated`),
+    const [latestRelease, nightlyRelease] = await Promise.all([
       fetchJson(`https://api.github.com/repos/${owner}/${name}/releases/latest`),
       fetchJson(`https://api.github.com/repos/${owner}/${name}/releases/tags/nightly`).catch(() => null)
     ]);
 
+    const repos = [{ full_name: `${owner}/${name}` }];
     const contributors = await aggregateContributors(repos);
 
     const payload = {
