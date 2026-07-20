@@ -1460,6 +1460,10 @@ body.modal-open {
   text-wrap: wrap;
 }
 
+.docs-content pre code {
+  background: none !important;
+}
+
 .docs-content pre {
   padding: 16px;
   border-radius: 14px;
