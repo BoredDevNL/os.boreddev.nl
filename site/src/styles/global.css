@@ -1388,9 +1388,20 @@ body.modal-open {
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   padding: 20px;
-  max-height: calc(100vh - 140px);
+  max-height: calc(100vh - 150px);
   overflow: auto;
 }
+
+.docs-sidebar::-webkit-scrollbar {
+  width: 5px;
+  background-color: var(--border);
+}
+
+.docs-sidebar::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 4px;
+}
+
 
 .docs-sidebar h4 {
   margin: 0 0 10px;
@@ -1423,13 +1434,14 @@ body.modal-open {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   padding: clamp(24px, 4vw, 40px);
+
 }
 
 .docs-content h1,
 .docs-content h2,
 .docs-content h3,
 .docs-content h4 {
-  font-family: "Fraunces", "Georgia", serif;
+  font-family: verdana;
 }
 
 .docs-content p,
@@ -1445,6 +1457,11 @@ body.modal-open {
   background: var(--code-bg);
   padding: 2px 6px;
   border-radius: 6px;
+  text-wrap: wrap;
+}
+
+.docs-content pre code {
+  background: none !important;
 }
 
 .docs-content pre {
@@ -1453,6 +1470,7 @@ body.modal-open {
   background: #0f1520;
   color: #e6edf3;
   overflow: auto;
+  text-wrap: wrap;
 }
 
 .docs-search {

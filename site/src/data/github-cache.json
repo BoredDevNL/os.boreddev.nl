@@ -4,13 +4,19 @@
       "login": "BoredDevNL",
       "avatar_url": "https://avatars.githubusercontent.com/u/169399844?v=4",
       "html_url": "https://github.com/BoredDevNL",
-      "contributions": 560
+      "contributions": 615
     },
     {
       "login": "Lluciocc",
       "avatar_url": "https://avatars.githubusercontent.com/u/114759545?v=4",
       "html_url": "https://github.com/Lluciocc",
-      "contributions": 75
+      "contributions": 76
+    },
+    {
+      "login": "seuros",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2394703?v=4",
+      "html_url": "https://github.com/seuros",
+      "contributions": 35
     },
     {
       "login": "janevers-sys",
@@ -22,13 +28,13 @@
       "login": "Mellurboo",
       "avatar_url": "https://avatars.githubusercontent.com/u/102391892?v=4",
       "html_url": "https://github.com/Mellurboo",
-      "contributions": 15
+      "contributions": 18
     },
     {
-      "login": "seuros",
-      "avatar_url": "https://avatars.githubusercontent.com/u/2394703?v=4",
-      "html_url": "https://github.com/seuros",
-      "contributions": 5
+      "login": "zerfithel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/224387542?v=4",
+      "html_url": "https://github.com/zerfithel",
+      "contributions": 7
     },
     {
       "login": "zeyadhost",
@@ -50,19 +56,19 @@
     }
   ],
   "latestRelease": {
-    "name": "Nightly Build (c8367a5)",
+    "name": "Nightly Build (5981279)",
     "tag_name": "nightly",
     "html_url": "https://github.com/BoredOS/BoredOS/releases/tag/nightly",
     "published_at": "2026-04-19T22:06:08Z",
-    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nThere will also never be a full release. This is simply meant for people to preview the OS in\nit's very latest state.\n\nBuilt from commit:\n- Full hash: `c8367a5dfa27adbee6ebb6e640d17e7ed04d0950`\n- Short hash: `c8367a5`\n\nBuilt on: `2026-06-27 16:56 UTC`\n",
+    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nThere will also never be a full release. This is simply meant for people to preview the OS in\nit's very latest state.\n\nBuilt from commit:\n- Full hash: `5981279b042cc5b4720782f6144941ef11fb2426`\n- Short hash: `5981279`\n\nBuilt on: `2026-07-18 21:27 UTC`\n",
     "iso_url": "https://github.com/BoredOS/BoredOS/releases/download/nightly/boredos.iso"
   },
   "nightlyRelease": {
-    "name": "Nightly Build (c8367a5)",
+    "name": "Nightly Build (5981279)",
     "tag_name": "nightly",
     "html_url": "https://github.com/BoredOS/BoredOS/releases/tag/nightly",
     "published_at": "2026-04-19T22:06:08Z",
-    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nThere will also never be a full release. This is simply meant for people to preview the OS in\nit's very latest state.\n\nBuilt from commit:\n- Full hash: `c8367a5dfa27adbee6ebb6e640d17e7ed04d0950`\n- Short hash: `c8367a5`\n\nBuilt on: `2026-06-27 16:56 UTC`\n",
+    "body": "This is an automated nightly build of BoredOS, this is not a final release and may be unstable.\nThere will also never be a full release. This is simply meant for people to preview the OS in\nit's very latest state.\n\nBuilt from commit:\n- Full hash: `5981279b042cc5b4720782f6144941ef11fb2426`\n- Short hash: `5981279`\n\nBuilt on: `2026-07-18 21:27 UTC`\n",
     "iso_url": "https://github.com/BoredOS/BoredOS/releases/download/nightly/boredos.iso"
   }
 }
