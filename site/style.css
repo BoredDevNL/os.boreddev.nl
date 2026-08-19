@@ -1,0 +1,338 @@
+:root {
+	--blue: #1A5276;
+	--nav-bg: #B9D6E8;
+	--nav-border: #2471A3;
+	--nav-header: #000000;
+	--bg: #FFFFFF;
+	--text: #111111;
+	--cmd-bg: #F5F5F5;
+	--card-bg: #F5F5F5;
+	--border: #AAAAAA;
+	--zebra-odd: #E5E5E5;
+	--link-color: #1A5276;
+	--visited-color: #5B2C6F;
+}
+
+:link {
+	color: var(--link-color);
+}
+
+:visited {
+	color: var(--visited-color);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+code {
+	white-space: nowrap;
+}
+
+pre,
+tt {
+	font-family: monospace;
+}
+
+tt {
+	white-space: pre;
+}
+
+.cmdbox {
+	background: var(--cmd-bg);
+	border: 1px solid var(--border);
+	overflow: auto;
+	padding: 10px;
+	margin: 1em 0;
+	font-family: monospace;
+}
+
+.zebra {
+	background: var(--card-bg);
+	border: 1px solid var(--border);
+	border-collapse: collapse;
+	width: 100%;
+	margin: 1em 0;
+}
+
+.zebra tr:nth-child(odd) {
+	background: var(--zebra-odd);
+}
+
+.zebra th,
+.zebra td {
+	border: 1px solid var(--border);
+	padding: 7px 10px;
+	text-align: left;
+}
+
+#BoredOS,
+#BoredOS a,
+#BoredOS :link,
+#BoredOS :visited,
+#BoredOS :link i,
+#BoredOS :visited i,
+#BoredOS :link b,
+#BoredOS :visited b {
+	color: var(--nav-border);
+	text-decoration: none;
+}
+
+#BoredOS {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+
+#BoredOS small {
+	font-weight: normal;
+	float: right;
+}
+
+/* Sidebar Layout */
+
+#project-main body {
+	height: 100%;
+	max-width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	display: table;
+	padding: 0;
+	margin: 0;
+}
+
+#project-main main {
+	display: table-row;
+}
+
+#project-main nav,
+#project-main article {
+	display: table-cell;
+	padding: 8px 16px;
+}
+
+#project-main nav {
+	border-right: 1px solid var(--border);
+	background-color: var(--nav-bg);
+	width: 220px;
+	vertical-align: top;
+}
+
+#project-main nav header {
+	margin: 0.8em 0 0.2em 0;
+	font-size: 14pt;
+	font-weight: bolder;
+	color: var(--nav-header);
+	line-height: 1.25;
+}
+
+#project-main nav header:first-child {
+	margin-top: 0.2em;
+}
+
+#project-main nav ul {
+	margin-top: 0;
+	margin-bottom: 1em;
+	padding-left: 0;
+}
+
+#project-main nav li {
+	list-style-type: none;
+	list-style-position: inside;
+	margin-left: 0.5em;
+	line-height: 1.4;
+}
+
+#project-main article {
+	padding: 16px 24px;
+	vertical-align: top;
+}
+
+#project-main article h2 {
+	margin-top: 0;
+}
+
+#project-main article h2.banner-header {
+	margin: 0 0 10px 0;
+	text-align: center;
+}
+
+#project-main article h2.banner-header img {
+	max-width: 100%;
+	height: auto;
+}
+
+#callout {
+	color: var(--blue);
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.1em;
+	margin: 10px 0 15px 0;
+}
+
+/* Headings */
+h2,
+h3 {
+	color: var(--blue);
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--border);
+	margin: 1em 0;
+}
+
+.gallery-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin: 1.5em 0;
+}
+
+.gallery-card {
+	flex: 0 0 calc(33.333% - 11px);
+	box-sizing: border-box;
+	border: 1px solid var(--border);
+	background: var(--card-bg);
+	padding: 8px;
+}
+
+@media (max-width: 1100px) {
+	.gallery-card {
+		flex: 0 0 calc(50% - 8px);
+	}
+}
+
+@media (max-width: 600px) {
+	.gallery-card {
+		flex: 0 0 100%;
+	}
+}
+
+.gallery-card img {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	height: auto;
+	object-fit: cover;
+	display: block;
+	border: 1px solid var(--border);
+	box-sizing: border-box;
+}
+
+.gallery-card-caption {
+	margin-top: 6px;
+	font-size: 0.85em;
+	line-height: 1.35;
+}
+
+/* Mobile responsive layout */
+
+@media (max-width: 768px) {
+	#project-main body {
+		position: static;
+		display: block;
+	}
+
+	#project-main main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#project-main nav,
+	#project-main article {
+		display: block;
+		width: auto;
+	}
+
+	#project-main article {
+		order: 1;
+		padding: 16px;
+	}
+
+	#project-main nav {
+		order: 2;
+		text-align: center;
+		border: solid var(--border);
+		border-width: 1px 0;
+	}
+
+	#project-main nav header {
+		white-space: normal;
+	}
+
+	#project-main article h2.banner-header img {
+		height: auto;
+		max-width: 100%;
+	}
+}
+
+/* Dark mode preferences */
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--blue: #7FB3D5;
+		--nav-bg: #202F51;
+		--nav-border: #5499C7;
+		--nav-header: #FFFFFF;
+		--bg: #1E1F21;
+		--text: #EEEFF1;
+		--cmd-bg: #000000;
+		--card-bg: #202020;
+		--border: #444444;
+		--zebra-odd: #2C2C2C;
+		--link-color: #BAD7FF;
+		--visited-color: #F6BAFF;
+	}
+
+	body {
+		background-color: #1E1F21;
+		color: #EEEFF1;
+	}
+
+	.cmdbox {
+		background: #000000;
+		color: #FFFFFF;
+		border-color: #444444;
+	}
+
+	.zebra {
+		background: #202020;
+		border-color: #444444;
+	}
+
+	.zebra tr:nth-child(odd) {
+		background: #2C2C2C;
+	}
+
+	.zebra th,
+	.zebra td {
+		border-color: #444444;
+	}
+
+	.gallery-card {
+		background: #202020;
+		border-color: #444444;
+	}
+
+	.gallery-card img {
+		border-color: #444444;
+	}
+
+	hr {
+		border-top-color: #444444;
+	}
+
+	#callout {
+		color: var(--blue);
+	}
+}

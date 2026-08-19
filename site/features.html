@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang=en id=project-main>
+<meta charset=utf-8>
+<title>BoredOS: Features</title>
+<meta name="description" content="Features, ports, package manager, and kernel internals of BoredOS">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://os.boreddev.nl/features.html">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<main>
+	<nav>
+
+		<header>About BoredOS</header>
+		<ul>
+			<li><a href="index.html">Home</a>
+			<li><a href="features.html">Features</a>
+		</ul>
+
+		<header>Getting BoredOS</header>
+		<ul>
+			<li><a href="download.html">Download</a>
+			<li><a href="build.html">Building from Source</a>
+		</ul>
+
+		<header>Getting Source</header>
+		<ul>
+			<li><a href="https://github.com/BoredOS/BoredOS">GitHub Repository</a>
+		</ul>
+
+		<header>BoredOS Resources</header>
+		<ul>
+			<li><a href="screenshots.html">Screenshots</a>
+			<li><a href="wallpapers.html">Wallpapers</a>
+		</ul>
+
+		<header>Community</header>
+		<ul>
+			<li><a href="community.html">Maintainers</a>
+			<li><a href="https://discord.gg/J2BxWaFAgY">Discord Server</a>
+			<li><a href="https://matrix.to/#/#boredos:boredos.dev">Matrix Space</a>
+			<li><a href="https://buymeacoffee.com/boreddevhq">Donate</a>
+		</ul>
+
+	</nav>
+	<article>
+
+		<h2 id=BoredOS>
+			<a href="index.html">BoredOS</a> Features
+		</h2>
+
+		<hr>
+
+		<p>
+			BoredOS is a UNIX-like operating system built entirely from scratch.
+			Written mostly in C. It isn't fully POSIX compliant, so software generally needs a bit of
+			porting work before it runs, but for most programs the changes needed are surprisingly small.
+		</p>
+
+		<h3>Networking</h3>
+		<p>
+			A TCP/IP stack courtesy of lwIP, with drivers for Intel e1000, Realtek RTL8139/RTL8111, and
+			VirtIO-net, covering the common hardware and virtualized setups.
+		</p>
+
+		<h3 id="nova">Nova</h3>
+		<p>
+			Nova is BoredOS's own compositor, built from the ground up with a custom UI toolkit and a
+			serenityOS-inspired design language.
+		</p>
+
+		<h3 id="package-manager">Package Manager</h3>
+		<p>
+			<code>bpm</code> is our package manager. It has a growing community repo where anyone can
+			submit packages.
+		</p>
+		<p>
+			There's a growing community repo, <a href="https://github.com/boredos/bur">BUR</a>, where anyone can
+			submit packages through a pull request. Want to add your own software? The
+			<a href="https://github.com/BoredOS/bur/blob/main/PACKAGING.md">packaging guide</a> walks you through the
+			format.
+		</p>
+
+		<h3>Kernel Internals</h3>
+		<table class="zebra">
+			<tr>
+				<th style="width: 25%;">Subsystem</th>
+				<th>Details</th>
+			</tr>
+			<tr>
+				<td><strong>SMP</strong></td>
+				<td>Multi-core support via LAPIC. Per-CPU state lives in the GS segment, and XSAVE/XRSTOR handle
+					FPU context across switches.</td>
+			</tr>
+			<tr>
+				<td><strong>Scheduler</strong></td>
+				<td>Preemptive round-robin over a circular process list, with sleep/wake support, per-CPU
+					affinity, and cross-core IPI so scheduling stays coordinated across every core.</td>
+			</tr>
+			<tr>
+				<td><strong>Memory</strong></td>
+				<td>A basic slab allocator with object pooling, plus physical and virtual mapping.</td>
+			</tr>
+			<tr>
+				<td><strong>FS</strong></td>
+				<td>Support for FAT32, EXT4 and tmpfs.</td>
+			</tr>
+			<tr>
+				<td><strong>IPC</strong></td>
+				<td>Unix domain sockets, shared memory through <code>/dev/shm</code>, wait queues, and work
+					queues.</td>
+			</tr>
+			<tr>
+				<td><strong>PTY</strong></td>
+				<td>Full pseudo-terminal support.</td>
+			</tr>
+			<tr>
+				<td><strong>Devices</strong></td>
+				<td>PCI, AHCI (SATA), PS/2, ACPI, I2C, AC97 audio, and RTC.</td>
+			</tr>
+			<tr>
+				<td><strong>TTYs</strong></td>
+				<td>10 graphical ttys, plus com0 through com3 serial ttys. With future support for USB and PCI serial
+					devices.</td>
+			</tr>
+			<tr>
+				<td><strong>ELF</strong></td>
+				<td>Loads and runs ELF64 binaries.</td>
+			</tr>
+		</table>
+
+		<h3>Ports</h3>
+		<table class="zebra">
+			<tr>
+				<th style="width: 25%;">Port</th>
+				<th>Notes</th>
+			</tr>
+			<tr>
+				<td><strong>TinyGL</strong></td>
+				<td>A small OpenGL 1.x subset.</td>
+			</tr>
+			<tr>
+				<td><strong>DOOM</strong></td>
+				<td>What's an operating system without DOOM?</td>
+			</tr>
+			<tr>
+				<td><strong>TCC</strong></td>
+				<td>A small, fast C compiler.</td>
+			</tr>
+			<tr>
+				<td><strong>Lua</strong></td>
+				<td>Available as a shell tool or embeddable in other programs.</td>
+			</tr>
+			<tr>
+				<td><strong>mlibc</strong></td>
+				<td>The managarm C standard library.</td>
+			</tr>
+			<tr>
+				<td><strong>kilo</strong></td>
+				<td>A simple text editor.</td>
+			</tr>
+			<tr>
+				<td><strong>tvi</strong></td>
+				<td>A simple vim-like text editor.</td>
+			</tr>
+			<tr>
+				<td><strong>kirc</strong></td>
+				<td>A simple IRC client.</td>
+			</tr>
+		</table>
+
+		<hr>
+		<p>
+			<small><a href="index.html">Back to BoredOS main page</a></small>
+
+	</article>
+</main>
+
+</html>

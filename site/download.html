@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang=en id=project-main>
+<meta charset=utf-8>
+<title>BoredOS: Download</title>
+<meta name="description" content="Download BoredOS automated nightly ISO images">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://os.boreddev.nl/download.html">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<main>
+	<nav>
+
+		<header>About BoredOS</header>
+		<ul>
+			<li><a href="index.html">Home</a>
+			<li><a href="features.html">Features</a>
+		</ul>
+
+		<header>Getting BoredOS</header>
+		<ul>
+			<li><a href="download.html">Download</a>
+			<li><a href="build.html">Building from Source</a>
+		</ul>
+
+		<header>Getting Source</header>
+		<ul>
+			<li><a href="https://github.com/BoredOS/BoredOS">GitHub Repository</a>
+		</ul>
+
+		<header>BoredOS Resources</header>
+		<ul>
+			<li><a href="screenshots.html">Screenshots</a>
+			<li><a href="wallpapers.html">Wallpapers</a>
+		</ul>
+
+		<header>Community</header>
+		<ul>
+			<li><a href="community.html">Maintainers</a>
+			<li><a href="https://discord.gg/J2BxWaFAgY">Discord Server</a>
+			<li><a href="https://matrix.to/#/#boredos:boredos.dev">Matrix Space</a>
+			<li><a href="https://buymeacoffee.com/boreddevhq">Donate</a>
+		</ul>
+
+	</nav>
+	<article>
+
+		<h2 id=BoredOS>
+			<a href="index.html">BoredOS</a> Download
+		</h2>
+
+		<hr>
+
+		<h3>Nightly Build</h3>
+
+		<p>
+			While we do not provide releases, we provide automated nightly ISO builds.
+			Although we recommend you <a href="build.html">build it from source</a>.
+		</p>
+		<table class="zebra">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+				<th>Download Link</th>
+			</tr>
+			<tr>
+				<td><strong>boredos.iso</strong></td>
+				<td>Automated Nightly ISO Build</td>
+				<td><a href="https://github.com/BoredOS/BoredOS/releases/download/nightly/boredos.iso"><strong>Download
+							ISO</strong></a></td>
+			</tr>
+		</table>
+
+		<p>
+		<h3>Installation</h3>
+		<p>
+			You can easily install boredOS on a USB drive using utilities such as: dd, Ventoy, or Rufus.
+			After installing the .iso file to a USB drive, you can boot from it. Via your BIOS / UEFI.
+			Once booted into BoredOS, use <code>boredos-install</code> to install BoredOS to your hard drive.
+		</p>
+
+		<h3>Running in QEMU</h3>
+		<p>
+			You can use QEMU to test out BoredOS and see if you want to install it or not. You can do this using
+			the Makefile run-YOUROS scripts. </p>
+
+		<hr>
+		<p>
+			<small><a href="index.html">Back to BoredOS main page</a></small>
+
+	</article>
+</main>
+
+</html>
