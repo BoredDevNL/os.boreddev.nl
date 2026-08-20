@@ -30,6 +30,7 @@
 
 		<header>BoredOS Resources</header>
 		<ul>
+			<li><a href="https://github.com/BoredOS/BoredOS/tree/main/docs">Documentation</a>
 			<li><a href="screenshots.html">Screenshots</a>
 			<li><a href="wallpapers.html">Wallpapers</a>
 		</ul>
@@ -71,22 +72,65 @@
 			</tr>
 		</table>
 
-		<p>
+		<h3>Minimum Requirements</h3>
+		<table class="zebra">
+			<tr>
+				<th style="width: 30%;">Component</th>
+				<th>Requirement</th>
+			</tr>
+			<tr>
+				<td><strong>Processor</strong></td>
+				<td>64-bit x86 CPU (x86-64 / AMD64) (>2019 CPU's might have issues)</td>
+			</tr>
+			<tr>
+				<td><strong>Memory (RAM)</strong></td>
+				<td>1 GB minimum during install (2 GB recommended; installed systems idle at ~40 MB)</td>
+			</tr>
+			<tr>
+				<td><strong>Storage</strong></td>
+				<td>1 GB available storage (SATA / AHCI / IDE)</td>
+			</tr>
+			<tr>
+				<td><strong>Graphics</strong></td>
+				<td>Standard VGA / VESA compatible display adapter</td>
+			</tr>
+			<tr>
+				<td><strong>Firmware</strong></td>
+				<td>BIOS or UEFI</td>
+			</tr>
+			<tr>
+				<td><strong>Network (Optional)</strong></td>
+				<td>Intel e1000, Realtek RTL8139/RTL8111, or VirtIO-net</td>
+			</tr>
+			<tr>
+				<td><strong>Emulators / Hypervisors</strong></td>
+				<td>QEMU, VirtualBox, VMware, or bare metal</td>
+			</tr>
+		</table>
+
 		<h3>Installation</h3>
 		<p>
-			You can easily install boredOS on a USB drive using utilities such as: dd, Ventoy, or Rufus.
-			After installing the .iso file to a USB drive, you can boot from it. Via your BIOS / UEFI.
-			Once booted into BoredOS, use <code>boredos-install</code> to install BoredOS to your hard drive.
+			You can easily write BoredOS to a USB drive using utilities such as <code>dd</code>, Ventoy, or Rufus.
+			After flashing the <code>.iso</code> file to a USB drive, boot from it via your BIOS or UEFI.
+			Once booted into BoredOS, run <code>boredos-install</code> to start the installation.
 		</p>
 
 		<h3>Running in QEMU</h3>
 		<p>
-			You can use QEMU to test out BoredOS and see if you want to install it or not. You can do this using
-			the Makefile run-YOUROS scripts. </p>
+			You can use QEMU to test BoredOS in a virtual machine before installing to hardware. You can launch it using
+			the Makefile run scripts.
+		</p>
+
+		<h3>Documentation &amp; Guides</h3>
+		<p>
+			For complete guides, configuration steps, package management details, and system internals, refer to the
+			official <a href="https://github.com/BoredOS/BoredOS/tree/main/docs">BoredOS Documentation</a>.
+		</p>
 
 		<hr>
 		<p>
 			<small><a href="index.html">Back to BoredOS main page</a></small>
+		</p>
 
 	</article>
 </main>
