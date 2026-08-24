@@ -61,8 +61,8 @@
 
 		<h3>Networking</h3>
 		<p>
-			A TCP/IP stack courtesy of lwIP, with drivers for Intel e1000, Realtek RTL8139/RTL8111, and
-			VirtIO-net, covering the common hardware and virtualized setups.
+			Networking is handled by lwIP, with drivers for Intel e1000, Realtek RTL8139/RTL8111, and
+			VirtIO-net, covering most common hardware and virtualized environments.
 		</p>
 
 		<h3 id="nova">Nova</h3>
@@ -97,15 +97,16 @@
 			<tr>
 				<td><strong>Scheduler</strong></td>
 				<td>Preemptive round-robin over a circular process list, with sleep/wake support, per-CPU
-					affinity, and cross-core IPI so scheduling stays coordinated across every core.</td>
+					affinity, and cross-core IPI for AP scheduling.</td>
 			</tr>
 			<tr>
 				<td><strong>Memory</strong></td>
-				<td>A basic slab allocator with object pooling, plus physical and virtual mapping.</td>
+				<td>Physical page allocator (PMM), slab allocator, 4-level MMU with COW, VMA tracking with an
+					RB-tree, demand paging, and a page cache.</td>
 			</tr>
 			<tr>
-				<td><strong>FS</strong></td>
-				<td>Support for FAT32, EXT4 and tmpfs.</td>
+				<td><strong>VFS</strong></td>
+				<td>Virtual filesystem layer supporting tmpfs, FAT32, ext4, ProcFS, and SysFS.</td>
 			</tr>
 			<tr>
 				<td><strong>IPC</strong></td>
