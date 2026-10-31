@@ -8,45 +8,70 @@
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="favicon.png">
 
-<main>
-	<nav>
-
-		<header>About BoredOS</header>
-		<ul>
-			<li><a href="index.html">Home</a>
-			<li><a href="features.html">Features</a>
-		</ul>
-
-		<header>Getting BoredOS</header>
-		<ul>
-			<li><a href="download.html">Download</a>
-			<li><a href="build.html">Building from Source</a>
-		</ul>
-
-		<header>Getting Source</header>
-		<ul>
-			<li><a href="https://github.com/BoredOS/BoredOS">GitHub Repository</a>
-		</ul>
-
-		<header>BoredOS Resources</header>
-		<ul>
-			<li><a href="https://github.com/BoredOS/BoredOS/tree/main/docs">Documentation</a>
-			<li><a href="artwork.html">Screenshots</a>
-			<li><a href="wallpapers.html">Wallpapers</a>
-		</ul>
-
-		<header>Community</header>
-		<ul>
-			<li><a href="community.html">Maintainers</a>
-			<li><a href="https://discord.gg/J2BxWaFAgY">Discord Server</a>
-			<li><a href="https://matrix.to/#/#boredos:boredos.dev">Matrix Space</a>
-			<li><a href="https://blog.boredos.dev">Blog</a>
-			<li><a href="https://buymeacoffee.com/boreddevhq">Donate</a>
-			<li><a href="https://github.com/boredos/boredos">GitHub</a>				
-			<li><a href="https://gitlab.com/boredos/boredos">Gitlab Mirror</a>				
-		</ul>
-
-	</nav>
+<header class="site-header">
+  <div class="header-container">
+    <a class="logo" href="index.html" aria-label="BoredOS home">
+      <img src="branding/bos.png" alt="BoredOS logo" width="32" height="32">
+      <span>BoredOS</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+    <div class="drawer-top">
+      <a class="logo" href="index.html" aria-label="BoredOS home">
+        <img src="branding/bos.png" alt="BoredOS logo" width="28" height="28">
+        <span>BoredOS</span>
+      </a>
+      <button class="drawer-close" type="button" aria-label="Close navigation">&times;</button>
+    </div>
+      <ul class="nav-groups">
+        <li class="nav-group">
+          <button class="nav-group-title" type="button" aria-expanded="false">About BoredOS</button>
+          <ul class="nav-group-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+          </ul>
+        </li>
+        <li class="nav-group">
+          <button class="nav-group-title" type="button" aria-expanded="false">Getting BoredOS</button>
+          <ul class="nav-group-links">
+            <li><a href="download.html">Download</a></li>
+            <li><a href="build.html">Building from Source</a></li>
+          </ul>
+        </li>
+        <li class="nav-group">
+          <button class="nav-group-title" type="button" aria-expanded="false">Getting Source</button>
+          <ul class="nav-group-links">
+            <li><a href="https://github.com/BoredOS/BoredOS">GitHub Repository</a></li>
+          </ul>
+        </li>
+        <li class="nav-group">
+          <button class="nav-group-title" type="button" aria-expanded="false">BoredOS Resources</button>
+          <ul class="nav-group-links">
+            <li><a href="https://github.com/BoredOS/BoredOS/tree/main/docs">Documentation</a></li>
+            <li><a href="screenshots.html">Screenshots</a></li>
+            <li><a href="wallpapers.html">Wallpapers</a></li>
+          </ul>
+        </li>
+        <li class="nav-group">
+          <button class="nav-group-title" type="button" aria-expanded="false">Community</button>
+          <ul class="nav-group-links">
+            <li><a href="community.html">Maintainers</a></li>
+            <li><a href="https://discord.gg/J2BxWaFAgY">Discord Server</a></li>
+            <li><a href="https://matrix.to/#/#boredos:boredos.dev">Matrix Space</a></li>
+            <li><a href="https://blog.boredos.dev">Blog</a></li>
+            <li><a href="https://buymeacoffee.com/boreddevhq">Donate</a></li>
+            <li><a href="https://github.com/boredos/boredos">GitHub</a></li>
+            <li><a href="https://gitlab.com/boredos/boredos">Gitlab Mirror</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-backdrop" aria-hidden="true"></div>
+  </div>
+</header>
+<main class="site-main">
 	<article>
 
 		<h2 id=BoredOS>
@@ -105,4 +130,18 @@
 	</article>
 </main>
 
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-tagline">An operating system made out of infinite boredom.</p>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="https://github.com/BoredOS/BoredOS">GitHub</a>
+      <a href="https://github.com/BoredOS/BoredOS/tree/main/docs">Documentation</a>
+      <a href="https://discord.gg/J2BxWaFAgY">Discord</a>
+      <a href="https://matrix.to/#/#boredos:boredos.dev">Matrix</a>
+    </nav>
+    <p class="footer-copy">&copy; <span class="footer-year">2026</span> BoredOS</p>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
 </html>
